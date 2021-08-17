@@ -1,6 +1,43 @@
 $btnColor: #E2C199;
 $styleColor:#b4a078;
 $fontColor: #CC9756;
+
+//提取出来的公共样式
+.h_title{
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin-right: 20px;
+    &:hover{
+      color: $fontColor;
+    }
+}
+
+//小日本制造
+.logo_title{
+  position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 20px;
+    font-size: 12px;
+    color: #a7936e;
+    border: 1px solid #b3a07d;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 4px;
+    line-height: 18px;
+    background-color: #f4f0ea;
+}
+// 2行省略号显示
+.name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /********** 轮播图区域 start **********/
 .swiper-container {
   position: relative;
@@ -78,15 +115,6 @@ $fontColor: #CC9756;
       .f-left{
         display: flex;
         align-items: flex-end;
-        h3{
-          font-size: 28px;
-          font-weight: 700;
-          color: #000;
-          margin-right: 20px;
-          &:hover{
-            color: $fontColor;
-          }
-        }
       }
     }
     .slickWidth {
@@ -97,8 +125,19 @@ $fontColor: #CC9756;
           li{
             width: 265px;
             height: 100%;
+            cursor: pointer;
             &:hover{
               background-color: #F4F0EA;
+              .hd img{
+                &:nth-of-type(1){
+                  display: none;
+                }
+              }
+              .hd img{
+                &:nth-of-type(2){
+                  display: block;
+                }
+              }
             }
             .hd{
               width: 265px;
@@ -107,7 +146,11 @@ $fontColor: #CC9756;
               img{
                 width:100%;
                 height:100%;
+                &:nth-of-type(2){
+                  display: none;
+                }
               }
+              
             }
             .bd{
               text-align: center;
@@ -129,12 +172,7 @@ $fontColor: #CC9756;
                 margin: 0 auto 4px;
                 max-height: 40px;
                 line-height: 20px;
-                font-size: 13px;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                font-size: 13px;  
               }
               .price{
                 .price-new{
@@ -151,75 +189,99 @@ $fontColor: #CC9756;
         }
       }
     }
-
-    // .slickWidth{
-    //   .box{
-    //     .hd{
-    //       display: flex;
-    //       justify-content: space-between;
-    //       li{
-    //         width: 265px;
-    //         height: 265px;
-    //         background-color: #f4f4f4;
-    //         img{
-    //           width:100%;
-    //           height:100%;
-    //         }
-    //       }
-    //     }
-    //     .bd{
-    //       display: flex;
-    //       justify-content: space-between;
-    //       li{
-    //         text-align: center;
-    //         width: 265px;
-    //         &:hover{
-    //           background-color: #F4F0EA;
-    //         }
-            // .prdtTags{
-            //   text-align: center;
-            //   span{
-            //     display: inline-block;
-            //     font-size: 12px;
-            //     height: 20px;
-            //     line-height: 20px;
-            //     color: #fff!important;
-            //     margin: 5px 0;
-            //     padding: 0 5px;
-            //     background-color: #e36844;
-            //   }
-              
-    //         }
-            // .name{
-            //   width: 166px;
-            //   margin: 0 auto 4px;
-            //   max-height: 40px;
-            //   line-height: 20px;
-            //   font-size: 13px;
-            //   display: -webkit-box;
-            //   -webkit-box-orient: vertical;
-            //   -webkit-line-clamp: 2;
-            //   overflow: hidden;
-            //   text-overflow: ellipsis;
-              
-            // }
-            // .price{
-            //   .price-new{
-            //     color: #d4282d;
-            //   }
-            //   .price-old{
-            //     font-size: 12px;
-            //     color: #999;
-            //     text-decoration: line-through;
-            //   }
-            // }
-    //       }
-    //     }
-    //   }
-    // }
-
-
-
   }
 }
 /********** 内容区域 m-newProducts end **********/ 
+
+
+
+/********** 人气推荐 m-indexPopularItem  start **********/
+.m-indexPopularItem{
+  padding: 60px 0;
+  background-color: #f4f0ea;
+  .m-commonHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    .lh1{
+      display: flex;
+      ul{
+        display: flex;
+        align-items: center;
+        li{
+          margin-right: 50px;
+          padding: 0 5px;  
+        }
+        li:last-child{
+          border-bottom: 2px solid #b4a078;
+        }
+      }
+    }
+  }
+  .showContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .box1 {
+      width: 390px;
+      height: 570px;
+      background-color:#f4f4f4;
+      .popularItem{
+        .hd{
+          position: relative;
+          height:400px;
+          padding: 40px;
+          border-bottom: 1px solid #ccc;
+          box-sizing: border-box;
+          img{
+            width: 320px;
+            height: 320px;
+            cursor: pointer;
+            transition: 1s ease-out;
+            &:hover{
+              transform:  scale(1.1);
+            }
+          } 
+        }
+        .bd{
+          text-align: center;
+          h4{
+            padding-top:40px;
+            line-height: 26px;
+            max-height: 52px;
+            margin: 0 auto 13px;
+            font-size: 18px;
+            width: 248px;
+            cursor: pointer;
+            &:hover{
+              color: #b4a078;
+            }
+          }
+          p{
+            font-size: 18px;
+            height: 18px;
+            line-height: 1;
+            color: #d4282d;
+          }
+        }
+      }
+    }
+    .box2{
+      padding-left: 10px;
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-content: space-between;
+      flex-wrap: wrap;
+      .popularItem{
+        width: 223px;
+        height: 280px;
+        background-color:#f4f4f4;
+      }
+    }
+  }
+}
+
+
+/********** 人气推荐 m-indexPopularItem  end **********/ 

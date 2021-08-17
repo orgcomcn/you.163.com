@@ -1,4 +1,39 @@
 @charset "UTF-8";
+.h_title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-right: 20px;
+}
+
+.h_title:hover {
+  color: #CC9756;
+}
+
+.logo_title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 20px;
+  font-size: 12px;
+  color: #a7936e;
+  border: 1px solid #b3a07d;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 4px;
+  line-height: 18px;
+  background-color: #f4f0ea;
+}
+
+.name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /********** 轮播图区域 start **********/
 .swiper-container {
   position: relative;
@@ -80,17 +115,6 @@
   align-items: flex-end;
 }
 
-.m-newProducts .center .m-commonHeader .f-left h3 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #000;
-  margin-right: 20px;
-}
-
-.m-newProducts .center .m-commonHeader .f-left h3:hover {
-  color: #CC9756;
-}
-
 .m-newProducts .center .slickWidth .box ul {
   display: flex;
   justify-content: space-between;
@@ -99,10 +123,19 @@
 .m-newProducts .center .slickWidth .box ul li {
   width: 265px;
   height: 100%;
+  cursor: pointer;
 }
 
 .m-newProducts .center .slickWidth .box ul li:hover {
   background-color: #F4F0EA;
+}
+
+.m-newProducts .center .slickWidth .box ul li:hover .hd img:nth-of-type(1) {
+  display: none;
+}
+
+.m-newProducts .center .slickWidth .box ul li:hover .hd img:nth-of-type(2) {
+  display: block;
 }
 
 .m-newProducts .center .slickWidth .box ul li .hd {
@@ -114,6 +147,10 @@
 .m-newProducts .center .slickWidth .box ul li .hd img {
   width: 100%;
   height: 100%;
+}
+
+.m-newProducts .center .slickWidth .box ul li .hd img:nth-of-type(2) {
+  display: none;
 }
 
 .m-newProducts .center .slickWidth .box ul li .bd {
@@ -141,11 +178,6 @@
   max-height: 40px;
   line-height: 20px;
   font-size: 13px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .m-newProducts .center .slickWidth .box ul li .bd .price .price-new {
@@ -159,3 +191,106 @@
 }
 
 /********** 内容区域 m-newProducts end **********/
+/********** 人气推荐 m-indexPopularItem  start **********/
+.m-indexPopularItem {
+  padding: 60px 0;
+  background-color: #f4f0ea;
+}
+
+.m-indexPopularItem .m-commonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.m-indexPopularItem .m-commonHeader .lh1 {
+  display: flex;
+}
+
+.m-indexPopularItem .m-commonHeader .lh1 ul {
+  display: flex;
+  align-items: center;
+}
+
+.m-indexPopularItem .m-commonHeader .lh1 ul li {
+  margin-right: 50px;
+  padding: 0 5px;
+}
+
+.m-indexPopularItem .m-commonHeader .lh1 ul li:last-child {
+  border-bottom: 2px solid #b4a078;
+}
+
+.m-indexPopularItem .showContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.m-indexPopularItem .showContainer .box1 {
+  width: 390px;
+  height: 570px;
+  background-color: #f4f4f4;
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .hd {
+  position: relative;
+  height: 400px;
+  padding: 40px;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .hd img {
+  width: 320px;
+  height: 320px;
+  cursor: pointer;
+  transition: 1s ease-out;
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .hd img:hover {
+  transform: scale(1.1);
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .bd {
+  text-align: center;
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .bd h4 {
+  padding-top: 40px;
+  line-height: 26px;
+  max-height: 52px;
+  margin: 0 auto 13px;
+  font-size: 18px;
+  width: 248px;
+  cursor: pointer;
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .bd h4:hover {
+  color: #b4a078;
+}
+
+.m-indexPopularItem .showContainer .box1 .popularItem .bd p {
+  font-size: 18px;
+  height: 18px;
+  line-height: 1;
+  color: #d4282d;
+}
+
+.m-indexPopularItem .showContainer .box2 {
+  padding-left: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+
+.m-indexPopularItem .showContainer .box2 .popularItem {
+  width: 223px;
+  height: 280px;
+  background-color: #f4f4f4;
+}
+
+/********** 人气推荐 m-indexPopularItem  end **********/
