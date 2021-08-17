@@ -1,0 +1,225 @@
+$btnColor: #E2C199;
+$styleColor:#b4a078;
+$fontColor: #CC9756;
+/********** 轮播图区域 start **********/
+.swiper-container {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background-color: #F5F5F5;
+  .swiper-wrapper {
+    position: relative;
+    height: 420px;
+    a{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      img{
+        // opacity: 0;
+      }
+    }
+  }
+  .swiper-button {
+    .next , .prev{
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      opacity: 80;
+      border-radius: 500px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:hover{
+        background-color: #CC9756;
+      }
+    }
+    .prev{
+      left: 154.5px;
+      background: url('../images/yanxan_sprites1.png') 0 -5438px no-repeat;
+      background-color: $btnColor;
+    }
+    .next{
+      right: 154.5px;
+      background: url('../images/yanxan_sprites1.png') 0 -5658px no-repeat;
+      background-color: $btnColor;
+    }
+  }
+  .swiper-pagination{
+    position:absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    li{
+     
+      button{
+        width:20px; 
+        height:20px;
+        background-color: red;
+        border-radius: 500px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+/********** 轮播图区域 end **********/ 
+
+/********** 内容区域 m-newProducts start **********/ 
+.m-newProducts{
+  height: 510px;
+  margin-top: 30px;
+  .center{
+    
+    .m-commonHeader{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      .f-left{
+        display: flex;
+        align-items: flex-end;
+        h3{
+          font-size: 28px;
+          font-weight: 700;
+          color: #000;
+          margin-right: 20px;
+          &:hover{
+            color: $fontColor;
+          }
+        }
+      }
+    }
+    .slickWidth {
+      .box{
+        ul{
+          display: flex;
+          justify-content: space-between;
+          li{
+            width: 265px;
+            height: 100%;
+            &:hover{
+              background-color: #F4F0EA;
+            }
+            .hd{
+              width: 265px;
+              height: 265px;
+              background-color: #f4f4f4;
+              img{
+                width:100%;
+                height:100%;
+              }
+            }
+            .bd{
+              text-align: center;
+              .prdtTags{
+                text-align: center;
+                span{
+                  display: inline-block;
+                  font-size: 12px;
+                  height: 20px;
+                  line-height: 20px;
+                  color: #fff!important;
+                  margin: 5px 0;
+                  padding: 0 5px;
+                  background-color: #e36844;
+                }
+              }
+              .name{
+                width: 166px;
+                margin: 0 auto 4px;
+                max-height: 40px;
+                line-height: 20px;
+                font-size: 13px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+              .price{
+                .price-new{
+                  color: #d4282d;
+                }
+                .price-old{
+                  font-size: 12px;
+                  color: #999;
+                  text-decoration: line-through;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // .slickWidth{
+    //   .box{
+    //     .hd{
+    //       display: flex;
+    //       justify-content: space-between;
+    //       li{
+    //         width: 265px;
+    //         height: 265px;
+    //         background-color: #f4f4f4;
+    //         img{
+    //           width:100%;
+    //           height:100%;
+    //         }
+    //       }
+    //     }
+    //     .bd{
+    //       display: flex;
+    //       justify-content: space-between;
+    //       li{
+    //         text-align: center;
+    //         width: 265px;
+    //         &:hover{
+    //           background-color: #F4F0EA;
+    //         }
+            // .prdtTags{
+            //   text-align: center;
+            //   span{
+            //     display: inline-block;
+            //     font-size: 12px;
+            //     height: 20px;
+            //     line-height: 20px;
+            //     color: #fff!important;
+            //     margin: 5px 0;
+            //     padding: 0 5px;
+            //     background-color: #e36844;
+            //   }
+              
+    //         }
+            // .name{
+            //   width: 166px;
+            //   margin: 0 auto 4px;
+            //   max-height: 40px;
+            //   line-height: 20px;
+            //   font-size: 13px;
+            //   display: -webkit-box;
+            //   -webkit-box-orient: vertical;
+            //   -webkit-line-clamp: 2;
+            //   overflow: hidden;
+            //   text-overflow: ellipsis;
+              
+            // }
+            // .price{
+            //   .price-new{
+            //     color: #d4282d;
+            //   }
+            //   .price-old{
+            //     font-size: 12px;
+            //     color: #999;
+            //     text-decoration: line-through;
+            //   }
+            // }
+    //       }
+    //     }
+    //   }
+    // }
+
+
+
+  }
+}
+/********** 内容区域 m-newProducts end **********/ 

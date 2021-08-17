@@ -1,0 +1,268 @@
+$styleColor:#b4a078;
+$fontColor: #CC9756;
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dd {
+  margin: 0;
+}
+body {
+  font-size: 14px;
+  color: #333;
+  font-family: "Microsoft Yahei","微软雅黑",verdana;
+}
+ul,ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: $styleColor;
+}
+input {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+label {
+  vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+}
+th,td {
+  padding: 0;
+}
+i{
+  font-style: normal;
+}
+.center {
+  width: 1090px;
+  margin: auto;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.fs-14{
+  color: #333;
+  font-size: 14px;
+}
+.clearfix::after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+.current{
+  border-bottom: 3px solid $fontColor; 
+  color: $fontColor !important;
+}
+button{
+  border: none;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.ttf?t=1629167259071') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xia:before {
+  content: "\e61b";
+}
+
+.icon-shouji:before {
+  content: "\e612";
+}
+
+
+/*----------头部 公共样式 start----------*/
+#header {
+  height: 176px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  border-bottom: 1px solid #e8e8e8;
+  .header{
+    height: 36px;
+    line-height: 36px;
+    background-color: #333;
+    .center{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .left{
+        background: url(../images/laba.gif) center left no-repeat;
+        a{
+          margin-left: 28px;
+          color: $fontColor;
+          font-size: 12px;
+          text-decoration: underline;
+        }
+        a:hover{
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+      .right{
+        ul{
+          display: flex;
+          flex-direction: row;
+          a{
+            font-size: 12px;
+            height: 36px;
+            cursor: pointer;
+            color: #ccc;
+            padding: 0 14px;
+            border-right: 1px solid #ccc;
+          }
+          a:hover{
+            color: #fff;
+          }
+        }
+        li:last-child{
+          a{
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+  .search{
+    display:flex;
+    height:110px;
+    .center{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      .logo{
+        a{
+          display: block;
+          text-indent: -9999px;
+          overflow: hidden;
+          width: 252px;
+          padding-top: 51px;
+          height:0;
+          background: url(../images/yanxuan_sprites.png) 0 -303px no-repeat;
+        }
+      }
+      .search-btn {
+        display: flex;
+        flex-direction: column;
+        .top{
+          position: relative;
+          display: flex;
+          input {
+            width: 442px;
+            height:38px;
+            border: 1px solid $fontColor;
+            border-bottom-left-radius: 19px;
+            border-top-left-radius: 19px;
+            font-size: 14px;
+            padding-left: 38px;
+            outline: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+          }
+          span{
+            display: block;
+            width: 90px;
+            height: 38px;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+            background-color: $fontColor;
+            color: #fff;
+            line-height: 38px;
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+          }
+          span:hover{
+            background-color: #E2C199;
+          }
+          i{
+            position: absolute;
+            left: 18px;
+            top: 12px;
+            width: 15px;
+            height: 15px;
+            background: url(../images/yanxuan_sprites.png) 0 -518px no-repeat;
+          }
+        }
+      }
+      .bottom{
+        a{
+          display: inline-block;
+          padding: 0 10px;
+          font-size: 12px;
+          color: $fontColor;
+        }
+      }
+      .cart{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        width: 134px;
+        height: 38px;
+        border: 1px solid $fontColor;
+        border-radius: 19px;
+        box-sizing: border-box;
+        padding:0 10px;
+        .gwc{
+          display: block;
+          height: 18px;
+          width: 18px;
+          background: url(../images/yanxuan_sprites.png)  0px -147px no-repeat; 
+        }
+        .text{
+          color: $fontColor;
+        }
+        .circle{
+          display: block;
+          height: 20px;
+          width: 20px;
+          text-align: center;
+          line-height: 20px;
+          color: #fff;
+          background: url(../images/yanxuan_sprites.png) 0 -50px;
+        }
+        &:hover{
+          background-color: #F5F3EF;
+        }
+      }
+    }
+  }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li {
+      a{
+        font-weight: bold;
+        color: #000;
+        padding-bottom: 8px;
+        &:hover{
+          color: $fontColor;
+          border-bottom: 3px solid $fontColor; 
+        }
+      }
+    }
+  }
+}
+/*----------头部 公共样式  end----------*/
