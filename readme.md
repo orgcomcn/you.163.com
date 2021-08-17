@@ -1,4 +1,4 @@
-首页 index.html
+首页 index.html(我在远程修改代码,制造一个冲突)
 
 ​	头部是公共的 对应css为 common.css
 
