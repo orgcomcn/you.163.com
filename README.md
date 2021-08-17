@@ -4,6 +4,7 @@
 ## 补充说明
   文档后续再进行README.md的补充,这里主要用来记录零碎的笔记和知识点.
 
+首页 index.html(我在远程修改代码,制造一个冲突)
 
 ## 巩固到的知识点
 首页 index.html
@@ -41,4 +42,8 @@ transform:  scale(1.1);
 
 ​轮播图按钮问题
 
+<<<<<<< HEAD:readme.md
 ​	?:js控制 根据devicePixelRatio获取缩放比例 然后动态设置style
+=======
+底部
+>>>>>>> f5e2f953c67e35e547ec40043dd616f87e1664e8:README.md
