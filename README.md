@@ -30,6 +30,12 @@ transform: translateX(-50%);
 transition: 1s ease-out; //这个没记起来
 transform:  scale(1.1); 
 
+解决图片放大超出
+display: block;
+width: 353px;
+height: 353px;
+overflow: hidden;
+
 // 2行省略号显示
 .name {
   display: -webkit-box;
@@ -38,6 +44,12 @@ transform:  scale(1.1);
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+网易严选搜索接口
+http://you.163.com/xhr/search/searchAutoComplete.json?
+参数
+__timestamp 毫秒级时间戳：13位数字
+keywordPrefix 关键字
 
 
 ​轮播图按钮问题

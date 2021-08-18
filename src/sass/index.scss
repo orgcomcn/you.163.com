@@ -8,10 +8,105 @@ $fontColor: #CC9756;
     font-weight: 700;
     color: #000;
     margin-right: 20px;
+    cursor: pointer;
     &:hover{
       color: $fontColor;
     }
 }
+//图片触摸放大
+.img_scale{
+  transition: 1s ease-out;
+    &:hover{
+      transform:  scale(1.1);
+    }
+}
+
+//商品价格统一样式
+.price {
+    font-size: 13px;
+    line-height: 13px;
+    color: #d4282d;
+    padding: 1px 0 9px;
+    margin: 0;
+}
+
+//list 的公共样式
+.slickWidth {
+  .box{
+    ul{
+      display: flex;
+      justify-content: space-between;
+      li{
+        position: relative;
+        width: 265px;
+        height: 100%;
+        cursor: pointer;
+        &:hover{
+          background-color: #F4F0EA;
+          .hd img{
+            &:nth-of-type(1){
+              display: none;
+            }
+          }
+          .hd img{
+            &:nth-of-type(2){
+              display: block;
+            }
+          }
+        }
+        .hd{
+          width: 265px;
+          height: 265px;
+          background-color: #f4f4f4;
+          img{
+            width:100%;
+            height:100%;
+            &:nth-of-type(2){
+              display: none;
+            }
+          }
+          
+        }
+        .bd{
+          text-align: center;
+          .prdtTags{
+            text-align: center;
+            span{
+              display: inline-block;
+              font-size: 12px;
+              height: 20px;
+              line-height: 20px;
+              color: #fff!important;
+              margin: 5px 0;
+              padding: 0 5px;
+              background-color: #e36844;
+            }
+          }
+          .name{
+            width: 166px;
+            margin: 0 auto 4px;
+            max-height: 40px;
+            line-height: 20px;
+            font-size: 13px;  
+          }
+          .price{
+            .price-new{
+              color: #d4282d;
+            }
+            .price-old{
+              font-size: 12px;
+              color: #999;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 
 //小日本制造
 .logo_title{
@@ -37,6 +132,7 @@ $fontColor: #CC9756;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 /********** 轮播图区域 start **********/
 .swiper-container {
@@ -117,78 +213,6 @@ $fontColor: #CC9756;
         align-items: flex-end;
       }
     }
-    .slickWidth {
-      .box{
-        ul{
-          display: flex;
-          justify-content: space-between;
-          li{
-            width: 265px;
-            height: 100%;
-            cursor: pointer;
-            &:hover{
-              background-color: #F4F0EA;
-              .hd img{
-                &:nth-of-type(1){
-                  display: none;
-                }
-              }
-              .hd img{
-                &:nth-of-type(2){
-                  display: block;
-                }
-              }
-            }
-            .hd{
-              width: 265px;
-              height: 265px;
-              background-color: #f4f4f4;
-              img{
-                width:100%;
-                height:100%;
-                &:nth-of-type(2){
-                  display: none;
-                }
-              }
-              
-            }
-            .bd{
-              text-align: center;
-              .prdtTags{
-                text-align: center;
-                span{
-                  display: inline-block;
-                  font-size: 12px;
-                  height: 20px;
-                  line-height: 20px;
-                  color: #fff!important;
-                  margin: 5px 0;
-                  padding: 0 5px;
-                  background-color: #e36844;
-                }
-              }
-              .name{
-                width: 166px;
-                margin: 0 auto 4px;
-                max-height: 40px;
-                line-height: 20px;
-                font-size: 13px;  
-              }
-              .price{
-                .price-new{
-                  color: #d4282d;
-                }
-                .price-old{
-                  font-size: 12px;
-                  color: #999;
-                  text-decoration: line-through;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 }
 /********** 内容区域 m-newProducts end **********/ 
@@ -238,10 +262,6 @@ $fontColor: #CC9756;
             width: 320px;
             height: 320px;
             cursor: pointer;
-            transition: 1s ease-out;
-            &:hover{
-              transform:  scale(1.1);
-            }
           } 
         }
         .bd{
@@ -275,9 +295,34 @@ $fontColor: #CC9756;
       align-content: space-between;
       flex-wrap: wrap;
       .popularItem{
+        text-align: center;
         width: 223px;
         height: 280px;
         background-color:#f4f4f4;
+        .hd{
+          position: relative;
+          width: 223px;
+          height: 180px;
+          border-bottom: 1px solid #ccc;
+          box-sizing: border-box;
+          padding:20px;
+          img{
+            width: 180px;
+            height: 180px;
+            cursor: pointer;
+          }
+        }
+        .bd{
+          h4{
+            width: 166px;
+            margin: 15px auto 10px;
+            line-height: 20px;
+            cursor: pointer;
+            &:hover{
+              color: #b4a078;
+            }
+          }
+        }
       }
     }
   }
@@ -285,3 +330,222 @@ $fontColor: #CC9756;
 
 
 /********** 人气推荐 m-indexPopularItem  end **********/ 
+
+
+
+/********** 居家生活 m-indexCate  start **********/ 
+.m-indexCate{
+  margin-top: 60px;
+  .m-commonHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .lh1{
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
+      ul{
+        display: flex;
+        justify-content: space-between;
+        a{
+          padding: 0 10px;
+        }
+      }
+    }
+    .rh1{
+      margin-left: 20px;
+    }
+  }
+  .banner{
+    margin: 20px 0;
+    width:100%;
+    height:100%;
+    img{
+      width: 100%;
+      height: 310px;
+    }
+  }
+}
+
+/********** 居家生活 m-indexCate  end **********/ 
+
+/********** 服饰鞋包 m-indexCate  start **********/ 
+/********** 服饰鞋包 m-indexCate  end **********/ 
+
+/********** 大家都在说 g-row start **********/ 
+.g-row{
+  margin-top: 80px;
+  padding: 60px 0;
+  background-color: #f4f0ea;
+  .m-commonHeader{
+    margin-bottom: 30px;
+    .lh1{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+  }
+  .slickWidth{
+    position: relative;
+    ul{
+      display: flex;
+      justify-content: space-between;
+      li{
+        a{
+          display: block;
+          width: 353px;
+          height: 353px;
+          overflow: hidden;
+        }
+        div{
+          background-color: #fff;
+          box-sizing: border-box;
+          padding:30px;
+          p:nth-of-type(1){
+            color: #999;
+            font-weight: 400;
+            font-size: 14px;
+          }
+          p:nth-of-type(2){
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            span:nth-of-type(1){
+              display:inline-block;
+              font-size: 16px;
+              font-weight: 700;
+              max-width: 190px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          p:nth-of-type(3){
+            max-width: 295px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .prev,.next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      opacity: 80;
+      border-radius: 500px;
+      background-color: #E2C199;
+      
+      &:hover{
+        background-color: #CC9756;
+      }
+    }
+    .prev{
+      left: -60px;
+      background-image: url(../images/yanxan_sprites1.png);
+      background-position:0 -5438px;
+    }
+    .next{
+      right: -60px;
+      background-image: url(../images/yanxan_sprites1.png);
+      background-position:0 -5658px;
+    }
+  }
+}
+/********** 大家都在说 g-row start **********/ 
+
+
+/********** 底部 footer start **********/ 
+footer {
+  text-align: center;
+  .yx-cp-m-ft1 {
+    display: flex;
+    justify-content: space-between;
+    .yx-cp-item {
+      h4{
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 28px;
+      }
+      width: 360px;
+     margin: 50px 0;
+      &:nth-of-type(1){
+        border-right: 1px solid #ccc;
+        .btn {
+          a{
+            display: inline-block;
+            width: 80px; 
+            height: 96px;
+            border: 1px solid #ccc;
+            margin-left: 20px;
+            i{
+              display: block;
+              margin: 20px auto;
+              height: 26px;
+              width: 31px;
+            }
+          }
+          a:first-child{
+            i{  
+                background-image: url(../images/yanxuan_sprites3.jpg);
+                background-position: 0 -290px;
+              }
+          }
+          a:last-child{
+            i{
+                background-image: url(../images/yanxuan_sprites3.jpg);
+                background-position: 0 -97px;
+              }
+          }
+        }
+      }
+      &:nth-of-type(2){   
+        border-right: 1px solid #ccc;
+        p{
+          text-align: left;
+          padding: 0 37px;
+          font-size: 12px;
+          line-height: 18px;
+          margin-bottom: 22px;
+        }
+        .ewm{
+          padding: 0 37px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          i{
+            display: block;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            margin-left: 20px;
+            background-image: url(../images/yanxuan_sprites3.jpg);
+            &:nth-of-type(1){
+              background-position: 0 -326px;
+            }
+            &:nth-of-type(2){
+              background-position: 0 -428px;
+            }
+            &:nth-of-type(3){
+              background-position: 0 -470px;
+            }
+          }
+        }
+      }
+      &:nth-of-type(3){
+        img{
+          margin: 0 auto;
+        }
+        p{
+          color: #b4a078;
+          font-size: 12px;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+}
+/********** 底部 footer end **********/ 
