@@ -1,0 +1,143 @@
+.login .bg {
+  width: 100%;
+  height: 600px;
+  background: url(../images/login_bg.jpg) center no-repeat;
+}
+
+.login .bg .g-row {
+  position: relative;
+}
+
+.login .bg .g-row .lg-ewm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.login .bg .g-row .lg-ewm img {
+  display: block;
+  width: 100%;
+}
+
+.login .bg .g-row .lg-sm {
+  position: absolute;
+  width: 97px;
+  height: 19px;
+  top: 10px;
+  left: 60px;
+  cursor: pointer;
+}
+
+.login .bg .g-row .lg-sm img {
+  display: block;
+  width: 100%;
+}
+
+.login .bg .g-row .yx-loginFooter {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background: #F5F3EF;
+  overflow: hidden;
+  width: 348px;
+  bottom: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  padding-right: 25px;
+}
+
+.login .bg .g-row .yx-loginFooter .oList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.login .bg .g-row .yx-loginFooter .oList a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background: url(../images/login_sprites.png) center center no-repeat;
+  background-position: -7px -4px;
+}
+
+.login .bg .g-row .yx-loginFooter span {
+  cursor: pointer;
+}
+
+.login .bg .g-row .login-post {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  width: 348px;
+  height: 400px;
+  background-color: #fff;
+}
+
+.login .bg .g-row .login-post .login-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.login .bg .g-row .login-post .login-header span {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.login .bg .g-row .login-post .login-header span:nth-of-type(2) {
+  margin: 0 30px;
+  cursor: default;
+}
+
+.login .bg .g-row .inputbox {
+  margin: 25px auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+  height: 36px;
+  border: 1px solid #ccc;
+}
+
+.login .bg .g-row .inputbox .logo {
+  border-right: 1px solid #ccc;
+}
+
+.login .bg .g-row .inputbox .logo img {
+  margin: 0 10px;
+}
+
+.login .bg .g-row .inputbox input {
+  text-indent: 10px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+}
+
+.login .bg .g-row .btn {
+  margin-top: 40px;
+}
+
+.login .bg .g-row .btn a {
+  margin: 0 auto;
+  display: block;
+  width: 300px;
+  height: 48px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  background: #b4a078;
+  font-size: 18px;
+  line-height: 48px;
+  border-radius: 2px;
+}
