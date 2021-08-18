@@ -45,17 +45,14 @@ overflow: hidden;
   text-overflow: ellipsis;
 }
 
+```txt
 网易严选搜索接口
 http://you.163.com/xhr/search/searchAutoComplete.json?
 参数
 __timestamp 毫秒级时间戳：13位数字
 keywordPrefix 关键字
-
+```
 
 ​轮播图按钮问题
 
-<<<<<<< HEAD:readme.md
-​	?:js控制 根据devicePixelRatio获取缩放比例 然后动态设置style
-=======
-底部
->>>>>>> f5e2f953c67e35e547ec40043dd616f87e1664e8:README.md
+​js控制 根据devicePixelRatio获取缩放比例 然后动态设置style
