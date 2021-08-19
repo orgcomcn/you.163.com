@@ -90,14 +90,13 @@
   <div class="login">
     <div class="bg">
       <div class="g-row center">
-        <div class="login-post">
-          <form action="#" method="post">
-            <div class="login-header">
-              <span>手机号登录</span>
-              <span>|</span>
-              <span>邮箱登录</span>
-            </div>
-
+        <div class="login-post" id="login_register">
+          <div class="login-header">
+            <span id="login">手机号登录</span>
+            <span>|</span>
+            <span id="reg">用户注册</span>
+          </div>
+          <form action="#" method="post" >
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
@@ -108,11 +107,30 @@
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-                <input type="text" placeholder="请输入密码" autocomplete="off" maxlength="11" id="iphone">
+                <input type="password" placeholder="请输入密码" autocomplete="off" id="pwd">
             </div>
 
             <div class="btn">
               <a href="#" id="submitBtn">登录</a>
+            </div>
+          </form>
+
+          <form action="#" method="post" >
+            <div class="inputbox">
+              <div class="logo">
+                <img src="./images/phone.png" alt="">
+              </div>
+                <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="iphone">
+            </div>
+            <div class="inputbox">
+              <div class="logo">
+                <img src="./images/phone.png" alt="">
+              </div>
+                <input type="password" placeholder="请输入密码" autocomplete="off" id="pwd">
+            </div>
+
+            <div class="btn">
+              <a href="#" id="submitBtn">注册</a>
             </div>
 
           </form>
@@ -179,6 +197,9 @@
       <div class="yx-cp-m-ft2"></div>
     </div>
   </footer>
+
+  <script src="./js/login.js"></script>
+
 </body>
 
 </html>

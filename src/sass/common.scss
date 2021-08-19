@@ -1,6 +1,33 @@
 $styleColor:#b4a078;
 $fontColor: #CC9756;
 
+
+.dropMeun{
+  position: relative;
+  ul {
+    position: absolute;
+    display: none;
+    border: 1px solid #ddd;
+    min-width: 83px;
+    z-index: 999;
+    li{
+      text-align: center;
+      background-color: #fff;
+      a{
+        border:none !important;
+        &:hover{
+          color: $fontColor !important;
+        }
+      }
+    }
+  }
+  &:hover{
+   ul{
+    display: block;
+   }
+  }
+}
+
 body,h1,h2,h3,h4,h5,h6,p,dl,dd {
   margin: 0;
 }
@@ -70,8 +97,8 @@ button{
 }
 
 @font-face {
-  font-family: 'iconfont';
-  src: url('../font/iconfont.ttf?t=1629167259071') format('truetype');
+  font-family: "iconfont"; /* Project id  */
+  src: url('../font/iconfont.ttf?t=1629353855059') format('truetype');
 }
 
 .iconfont {
@@ -88,6 +115,10 @@ button{
 
 .icon-shouji:before {
   content: "\e612";
+}
+
+.icon-you:before {
+  content: "\e621";
 }
 
 
@@ -119,9 +150,14 @@ button{
         }
       }
       .right{
-        ul{
+        >ul{
           display: flex;
           flex-direction: row;
+          li:last-child{
+            a{
+              border-right: none;
+            }
+          }
           a{
             font-size: 12px;
             height: 36px;
@@ -132,11 +168,6 @@ button{
           }
           a:hover{
             color: #fff;
-          }
-        }
-        li:last-child{
-          a{
-            border-right: none;
           }
         }
       }
@@ -272,6 +303,8 @@ button{
 
 /*----------底部 公共样式  start----------*/
 footer {
+  margin-top: 50px;
+  border-top: 1px solid #ccc;
   text-align: center;
   .yx-cp-m-ft1 {
     display: flex;
