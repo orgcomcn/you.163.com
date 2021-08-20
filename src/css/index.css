@@ -146,6 +146,10 @@
   transform: translateX(-50%);
 }
 
+.swiper-container .swiper-wrapper a img {
+  opacity: 0;
+}
+
 .swiper-container .swiper-button .next, .swiper-container .swiper-button .prev {
   position: absolute;
   width: 50px;
@@ -181,10 +185,10 @@
   display: flex;
 }
 
-.swiper-container .swiper-pagination li button {
+.swiper-container .swiper-pagination li {
   width: 20px;
   height: 20px;
-  background-color: red;
+  background-color: #fff;
   border-radius: 500px;
   margin-right: 10px;
   cursor: pointer;
@@ -474,3 +478,30 @@
 }
 
 /********** 大家都在说 g-row end **********/
+/********** 盖楼层 start **********/
+.fixed {
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  right: 0;
+  top: 177px;
+}
+
+.fixed ul li {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.fixed ul li a {
+  color: #333;
+}
+
+.fixed ul li:hover {
+  background-color: #E2C199;
+  color: #CC9756;
+}
+
+/********** 盖楼层 end **********/

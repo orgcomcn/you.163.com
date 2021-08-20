@@ -53,6 +53,33 @@ __timestamp 毫秒级时间戳：13位数字
 keywordPrefix 关键字
 ```
 
+input 框和文本对齐问题
+https://www.cnblogs.com/lst619247/p/8057192.html
+
 ​轮播图按钮问题
 
 ​js控制 根据devicePixelRatio获取缩放比例 然后动态设置style
+
+
+# js遇到的问题 以及 复习
+## this指向问题
+```javascript
+//箭头函数
+[... (this.pageC)].forEach(item => {
+  console.log(this);
+})
+//匿名function函数
+Array.from(this.pageC).forEach(function (item) {
+  console.log(this);
+})
+//这里我使用的是class语法,我以为function的this指向window,其实不然
+//ES6里面 class默认开启严格模式 ,function 里面的this 是undefined!
+//总结:ES6里面 class默认开启严格模式
+````
+## 转数组的方式
+```javascript
+[... (this.pageC)];
+Array.form(this.pageC);
+Array.prototype.slice.call(this.paceC);
+```
+

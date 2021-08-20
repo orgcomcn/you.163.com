@@ -148,7 +148,7 @@ $fontColor: #CC9756;
       left: 50%;
       transform: translateX(-50%);
       img{
-        // opacity: 0;
+        opacity: 0;
       }
     }
   }
@@ -184,15 +184,12 @@ $fontColor: #CC9756;
     transform: translateX(-50%);
     display: flex;
     li{
-     
-      button{
         width:20px; 
         height:20px;
-        background-color: red;
+        background-color: #fff;
         border-radius: 500px;
         margin-right: 10px;
         cursor: pointer;
-      }
     }
   }
 }
@@ -203,7 +200,6 @@ $fontColor: #CC9756;
   height: 510px;
   margin-top: 30px;
   .center{
-    
     .m-commonHeader{
       display: flex;
       justify-content: space-between;
@@ -458,3 +454,29 @@ $fontColor: #CC9756;
 /********** 大家都在说 g-row end **********/ 
 
 
+/********** 盖楼层 start **********/ 
+.fixed{
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  right: 0;
+  top: 177px;
+  ul {
+    li{
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      cursor: pointer;
+     a{
+      color: #333;
+     }
+      &:hover{
+       background-color: #E2C199;
+       color: $fontColor;
+      }
+    };
+  }
+}
+
+/********** 盖楼层 end **********/ 
