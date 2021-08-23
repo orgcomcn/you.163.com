@@ -133,6 +133,7 @@
   height: 420px;
   overflow: hidden;
   background-color: #F5F5F5;
+  margin-bottom: 30px;
 }
 
 .swiper-container .swiper-wrapper {
@@ -198,7 +199,6 @@
 /********** 内容区域 m-newProducts start **********/
 .m-newProducts {
   height: 510px;
-  margin-top: 30px;
 }
 
 .m-newProducts .center .m-commonHeader {
@@ -404,9 +404,22 @@
   position: relative;
 }
 
+.g-row .slickWidth .carouselImgCon {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+}
+
 .g-row .slickWidth ul {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.g-row .slickWidth ul li {
+  margin-left: 11px;
 }
 
 .g-row .slickWidth ul li a {
@@ -496,12 +509,10 @@
 }
 
 .fixed ul li a {
+  display: block;
+  width: 60px;
+  height: 60px;
   color: #333;
-}
-
-.fixed ul li:hover {
-  background-color: #E2C199;
-  color: #CC9756;
 }
 
 /********** 盖楼层 end **********/

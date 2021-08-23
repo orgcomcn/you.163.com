@@ -127,6 +127,7 @@ button{
   height: 176px;
   box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
   border-bottom: 1px solid #e8e8e8;
+
   .header{
     height: 36px;
     line-height: 36px;
@@ -194,9 +195,29 @@ button{
       .search-btn {
         display: flex;
         flex-direction: column;
+        position: relative;
+        .search-ret{
+          position: absolute;
+          top: 38px;
+          left: 40px;
+          background-color: #fff;
+          border: 1px solid #e8e8e8;
+          border-top: none;
+          font-size: 14px;
+          outline: 0;
+          width: 400px;
+          z-index: 99;
+          display:none;
+          li{
+            height: 30px;
+            line-height: 30px;
+            text-indent: 5px;
+          }
+        }
         .top{
           position: relative;
           display: flex;
+          
           input {
             width: 442px;
             height:38px;
@@ -284,6 +305,8 @@ button{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 9;
     li {
       a{
         font-weight: bold;

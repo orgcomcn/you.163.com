@@ -61,6 +61,8 @@ https://www.cnblogs.com/lst619247/p/8057192.html
 ​js控制 根据devicePixelRatio获取缩放比例 然后动态设置style
 
 
+登录注册正则,二级菜单
+
 # js遇到的问题 以及 复习
 ## this指向问题
 ```javascript

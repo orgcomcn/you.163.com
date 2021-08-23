@@ -8,7 +8,7 @@
   <meta name="description" content="网易严选秉承网易一贯的严谨态度，深入世界各地，严格把关所有商品的产地、工艺、原材料，甄选居家、厨房、饮食等各类商品，力求给你最优质的商品。" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>网易严选 - 以严谨的态度，为中国消费者甄选天下优品</title>
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
   <!-- 公共样式CSS -->
   <link rel="stylesheet" href="./css/common.css">
   <!-- 登录样式 -->
@@ -96,43 +96,44 @@
             <span>|</span>
             <span id="reg">用户注册</span>
           </div>
-          <form action="#" method="post" >
+          <form action="./user/login" method="post">
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-                <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="iphone">
+              <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="login_iphone"
+                name="login_iphone">
             </div>
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-                <input type="password" placeholder="请输入密码" autocomplete="off" id="pwd">
+              <input type="password" placeholder="请输入密码" autocomplete="off" id="login_pwd" name="login_pwd">
             </div>
 
             <div class="btn">
-              <a href="#" id="submitBtn">登录</a>
+              <a href="javascript:void(0)" id="submitLogin">登录</a>
             </div>
           </form>
 
-          <form action="#" method="post" >
+          <form action="./user/regedit" method="post">
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-                <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="iphone">
+              <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="reg_iphone"
+                name="reg_iphone">
             </div>
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-                <input type="password" placeholder="请输入密码" autocomplete="off" id="pwd">
+              <input type="password" placeholder="请输入密码" autocomplete="off" id="reg_pwd" name="reg_pwd">
             </div>
 
             <div class="btn">
-              <a href="#" id="submitBtn">注册</a>
+              <a href="javascript:void(0)" id="submitReg">注册</a>
             </div>
-
           </form>
 
           <div class="yx-loginFooter">

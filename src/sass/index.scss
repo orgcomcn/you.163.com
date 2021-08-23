@@ -36,6 +36,7 @@ $fontColor: #CC9756;
     ul{
       display: flex;
       justify-content: space-between;
+     
       li{
         position: relative;
         width: 265px;
@@ -140,6 +141,7 @@ $fontColor: #CC9756;
   height: 420px;
   overflow: hidden;
   background-color: #F5F5F5;
+  margin-bottom: 30px;
   .swiper-wrapper {
     position: relative;
     height: 420px;
@@ -198,7 +200,6 @@ $fontColor: #CC9756;
 /********** 内容区域 m-newProducts start **********/ 
 .m-newProducts{
   height: 510px;
-  margin-top: 30px;
   .center{
     .m-commonHeader{
       display: flex;
@@ -384,10 +385,19 @@ $fontColor: #CC9756;
   }
   .slickWidth{
     position: relative;
+    .carouselImgCon{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow-x: hidden;
+    }
     ul{
       display: flex;
       justify-content: space-between;
+      flex-wrap: nowrap;
+      position: relative;
       li{
+        margin-left: 11px;
         a{
           display: block;
           width: 353px;
@@ -469,12 +479,11 @@ $fontColor: #CC9756;
       text-align: center;
       cursor: pointer;
      a{
+       display: block;
+       width: 60px;
+       height: 60px;
       color: #333;
      }
-      &:hover{
-       background-color: #E2C199;
-       color: $fontColor;
-      }
     };
   }
 }
