@@ -63,6 +63,13 @@ https://www.cnblogs.com/lst619247/p/8057192.html
 
 登录注册正则,二级菜单
 
+差点忘记
+
+  mouseover和mouseout在父元素和其子元素都可以触发，当鼠标穿过一个元素时，触发次数得依子元素数量而言。
+  mouseenter和mouseleave只在父元素触发，当鼠标穿过一个元素时，只会触发一次。
+  mouseover和mouseout比mouseenter和mouseleave先触发
+  因此一般mouseover和mouseout一起使用，mouseenter和mouseleave一起使用.
+
 # js遇到的问题 以及 复习
 ## this指向问题
 ```javascript

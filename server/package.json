@@ -12,6 +12,8 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "md5": "^2.3.0",
     "mysql": "^2.18.1",
     "silly-datetime": "^0.1.2"
   }

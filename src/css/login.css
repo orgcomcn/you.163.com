@@ -85,7 +85,12 @@
 .login .bg .g-row .login-post .login-header {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 40px;
+}
+
+.login .bg .g-row .login-post .login-header #login {
+  font-weight: 700;
 }
 
 .login .bg .g-row .login-post .login-header span {
@@ -93,19 +98,26 @@
   font-size: 18px;
 }
 
-.login .bg .g-row .login-post .login-header span:nth-of-type(2) {
+.login .bg .g-row .login-post .login-header strong {
   margin: 0 30px;
   cursor: default;
 }
 
 .login .bg .g-row .inputbox {
-  margin: 25px auto;
+  margin: 35px auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 300px;
   height: 36px;
   border: 1px solid #ccc;
+  position: relative;
+}
+
+.login .bg .g-row .inputbox .phoneMsg, .login .bg .g-row .inputbox .pwdMsg {
+  position: absolute;
+  top: 40px;
+  left: 30px;
 }
 
 .login .bg .g-row .inputbox .logo {
@@ -128,7 +140,7 @@
   margin-top: 40px;
 }
 
-.login .bg .g-row .btn a {
+.login .bg .g-row .btn button {
   margin: 0 auto;
   display: block;
   width: 300px;

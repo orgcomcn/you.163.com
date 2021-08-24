@@ -1,21 +1,20 @@
 (function () {
 
-  window.addEventListener('load', () => {
-    //防抖,用在了盖楼成上面
-    function debounce(fn, delay) {
-      let timer = null;
-      return function () {
-        let that = this;
-        let args = arguments;
+  //防抖,用在了盖楼层,搜索上面
+  function debounce(fn, delay) {
+    let timer = null;
+    return function () {
+      let that = this;
+      let args = arguments;
 
-        if (timer) clearInterval(timer);
-        timer = setTimeout(function () {
-          fn.apply(that, args);
-        }, delay);
-      }
+      if (timer) clearInterval(timer);
+      timer = setTimeout(function () {
+        fn.apply(that, args);
+      }, delay);
     }
+  }
 
-
+  window.addEventListener('load', () => {
     // 透明轮播图
     class swiperBaner {
       constructor(settings = {}) {
@@ -41,7 +40,6 @@
           }
           this.autoPlay();
         }, 1000);
-
 
         //点击轮播
         this.clickHandler();
@@ -119,7 +117,6 @@
     new swiperBaner({
       el: '.swiper-container',
     });
-
 
     //盖楼层
     class Floor {
@@ -240,7 +237,6 @@
     })
   })
 
-
   //固定导航栏
   class tabTools {
     constructor(settings = {}) {
@@ -269,7 +265,6 @@
   new tabTools({
     el: '#header'
   });
-
 
   //滚动轮播
   class swiperBanner {
@@ -329,7 +324,6 @@
     el: '.carouselImgCon'
   })
 
-
   //AJAX拿搜索数据,返回给前端,展示搜索栏
   class searchRet {
     constructor(settings = {}) {
@@ -337,36 +331,106 @@
       this.el = document.querySelector(settings.el);
       //拿到输入框 实时监听里面的输入内容
       this.ipt = this.el.children[0].children[0];
-      // this.inputChange();
+      //拿到的数据
+      this.data = [];
+
+      //正在输入
+      this.inputChange();
+
+      //数据的渲染
+      this.render();
+
+      //触摸我,我变色,利用事件委托
+      this.overHanlder();
+
+      //点击选项,把数据放到输入框
+      this.clickHanlder();
+
     }
 
+    //数据的渲染
+    render() {
+      let strHTML = ``;
+      this.data.forEach((item, index) => {
+        strHTML += `<li data-id="${index}">${item}</li>`;
+      })
+      this.el.children[2].innerHTML = strHTML;
+    }
+
+    //正在输入,加了防抖
     inputChange() {
       //网易严选搜索接口
       //http://you.163.com/xhr/search/searchAutoComplete.json?
       //参数
       //__timestamp 毫秒级时间戳：13位数字
       //keywordPrefix 关键字
-
-      this.ipt.addEventListener('input', () => {
+      let that = this;
+      this.ipt.addEventListener('input', debounce(search, 200))
+      function search() {
         //拿到内容,发送给搜索接口
-        let keywordPrefix = this.ipt.value;
+        let keywordPrefix = that.ipt.value;
         //获取当前13位时间戳
         let __timestamp = Date.now();
-        let url = `http://you.163.com/xhr/search/searchAutoComplete.json?__timestamp=1629273744842&keywordPrefix=q`
         $.ajax({
           type: "get",
-          url: url,
-          success: function (data) {
-            console.log(data);
-          },
-          error: function (err) {
-            console.log(err);
+          url: '/search',
+          data: {
+            __timestamp: __timestamp,
+            keywordPrefix: keywordPrefix
           }
+        }).then(res => {
+          if (!res) { return false; }
+          //保存一份数据
+          that.data = res.data || [];
+          //渲染数据
+          that.render();
         });
+      }
+    }
+
+    //触摸我,我变色
+    overHanlder() {
+      this.el.children[2].addEventListener('mouseover', (event) => {
+        let e = event || window.event;
+        let target = e.target || e.srcElement
+
+        if (target.nodeName !== 'LI') {
+          return false;
+        }
+        //自己变色,其他的不变色
+        let id = target.getAttribute('data-id');
+        //转换数组,排他思想
+        Array.prototype.slice.call(this.el.children[2].children).forEach((item, index) => {
+          item.style.backgroundColor = index == id ? '#f40' : '#fff';
+        });
+      });
+      
+      //离开就清除
+      this.el.children[2].addEventListener('mouseleave', () => {
+        this.data =[];
+        this.render();
       })
     }
+
+    //点击,删除搜索数据,把输入放到输入框
+    clickHanlder() {
+      this.el.children[2].addEventListener('click', (event) => {
+        let e = event || window.event;
+        let target = e.target || e.srcElement
+        if (target.nodeName !== 'LI') {
+          return false;
+        }
+        //数据赋值给输入框
+        this.ipt.value = target.innerText;
+        //清空搜索框数据
+        this.el.children[2].innerHTML = '';
+      });
+
+    }
+
   }
 
+  //使用代理,解决了跨域问题
   new searchRet({
     el: '.search-btn'
   })

@@ -28,8 +28,7 @@
         </div>
         <div class="right">
           <ul>
-            <li> <a href="#">登录</a></li>
-            <li> <a href="#">注册</a></li>
+            <li> <a href="./login.html">登录/注册</a></li>
             <li> <a href="#">我的订单</a></li>
             <li> <a href="#">会员</a></li>
             <li> <a href="#">甄选家</a></li>
@@ -92,50 +91,31 @@
       <div class="g-row center">
         <div class="login-post" id="login_register">
           <div class="login-header">
-            <span id="login">手机号登录</span>
-            <span>|</span>
-            <span id="reg">用户注册</span>
+            <span id="login">登录</span>
+            <strong>|</strong>
+            <span id="regedit">注册</span>
           </div>
-          <form action="./user/login" method="post">
+          <form>
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-              <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="login_iphone"
-                name="login_iphone">
+              <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="phone"  name="phone">
+              <span class="phoneMsg"></span>
             </div>
+           
             <div class="inputbox">
               <div class="logo">
                 <img src="./images/phone.png" alt="">
               </div>
-              <input type="password" placeholder="请输入密码" autocomplete="off" id="login_pwd" name="login_pwd">
+              <input type="password" placeholder="请输入密码" autocomplete="off" id="pwd" name="pwd">
+              <span class="pwdMsg"></span>
             </div>
-
+        
             <div class="btn">
-              <a href="javascript:void(0)" id="submitLogin">登录</a>
+              <button id="submit">登录</button>
             </div>
           </form>
-
-          <form action="./user/regedit" method="post">
-            <div class="inputbox">
-              <div class="logo">
-                <img src="./images/phone.png" alt="">
-              </div>
-              <input type="text" placeholder="请输入账号" autocomplete="off" maxlength="11" id="reg_iphone"
-                name="reg_iphone">
-            </div>
-            <div class="inputbox">
-              <div class="logo">
-                <img src="./images/phone.png" alt="">
-              </div>
-              <input type="password" placeholder="请输入密码" autocomplete="off" id="reg_pwd" name="reg_pwd">
-            </div>
-
-            <div class="btn">
-              <a href="javascript:void(0)" id="submitReg">注册</a>
-            </div>
-          </form>
-
           <div class="yx-loginFooter">
             <div class="oList">
               <a href="#"></a>
@@ -152,7 +132,6 @@
           <div class="lg-sm">
             <img src="./images/login_sm.png" alt="">
           </div>
-
         </div>
       </div>
     </div>
@@ -199,6 +178,8 @@
     </div>
   </footer>
 
+  <script src="./layui/layui.js"></script>
+  <script src='./js/libs/jquery.js'></script>
   <script src="./js/login.js"></script>
 
 </body>
