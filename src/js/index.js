@@ -1,20 +1,22 @@
 (function () {
 
-  //防抖,用在了盖楼层,搜索上面
-  function debounce(fn, delay) {
-    let timer = null;
-    return function () {
-      let that = this;
-      let args = arguments;
 
-      if (timer) clearInterval(timer);
-      timer = setTimeout(function () {
-        fn.apply(that, args);
-      }, delay);
-    }
-  }
 
   window.addEventListener('load', () => {
+    //防抖,用在了盖楼层,搜索上面
+    function debounce(fn, delay) {
+      let timer = null;
+      return function () {
+        let that = this;
+        let args = arguments;
+
+        if (timer) clearInterval(timer);
+        timer = setTimeout(function () {
+          fn.apply(that, args);
+        }, delay);
+      }
+    }
+
     // 透明轮播图
     class swiperBaner {
       constructor(settings = {}) {
@@ -234,205 +236,323 @@
       three: '.m-indexCate',
       fore: '.m-bao',
       five: '.g-row',
+    });
+
+
+    //固定导航栏
+    class tabTools {
+      constructor(settings = {}) {
+        this.el = document.querySelector(settings.el);
+        this.tab = this.el.children[2];
+        //吸顶效果
+        this.scrollBody();
+      }
+      scrollBody() {
+        let tabTop = this.tab.offsetTop;
+        window.addEventListener('scroll', () => {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          if (scrollTop > tabTop) {
+            this.tab.style.position = 'fixed';
+            this.tab.style.top = '0px';
+            this.tab.style.left = '50%';
+            this.tab.style.transform = 'translateX(-50%)';
+          } else {
+            this.tab.style.position = 'static';
+            this.tab.style.left = '0';
+            this.tab.style.transform = 'translateX(0)';
+          }
+        })
+      }
+    }
+    new tabTools({
+      el: '#header'
+    });
+
+    //滚动轮播
+    class swiperBanner {
+      constructor(settings = {}) {
+        this.el = document.querySelector(settings.el);
+        //ul list
+        this.oList = this.el.children[0];
+        //prev next
+        this.prev = this.el.nextElementSibling;
+        this.next = this.prev.nextElementSibling;
+        //当前是第几张图
+        this.indexTemp = 0;
+        //位置,宽度为364(包含了padding)
+        this.pos = 0;
+        //节流阀
+        this.flag = true;
+        this.clickHandler(() => { this.flag = true });
+      }
+      //大家都在说 轮播图
+      clickHandler(fn) {
+        this.prev.addEventListener('click', () => {
+          //控制图片下标,防止超出
+          if (!(this.indexTemp <= 0)) {
+            //节流阀
+            if (this.flag) {
+              this.indexTemp--;
+              this.pos -= 364;
+              this.flag = false;
+              Utils.animate(this.oList, { left: -this.pos }, () => {
+                if (typeof fn === 'function') {
+                  fn();
+                }
+              });
+            }
+          }
+        })
+        this.next.addEventListener('click', () => {
+          //控制图片下标,防止超出
+          if (!(this.indexTemp >= this.el.children[0].children.length - 3)) {
+            //节流阀
+            if (this.flag) {
+              this.indexTemp++;
+              this.pos += 364;
+              this.flag = false;
+              Utils.animate(this.oList, { left: -this.pos }, () => {
+                if (typeof fn === 'function') {
+                  fn();
+                }
+              });
+            }
+          }
+        })
+      }
+    }
+    //大家都在说轮播图
+    new swiperBanner({
+      el: '.carouselImgCon'
     })
-  })
 
-  //固定导航栏
-  class tabTools {
-    constructor(settings = {}) {
-      this.el = document.querySelector(settings.el);
-      this.tab = this.el.children[2];
-      //吸顶效果
-      this.scrollBody();
-    }
-    scrollBody() {
-      let tabTop = this.tab.offsetTop;
-      window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        if (scrollTop > tabTop) {
-          this.tab.style.position = 'fixed';
-          this.tab.style.top = '0px';
-          this.tab.style.left = '50%';
-          this.tab.style.transform = 'translateX(-50%)';
-        } else {
-          this.tab.style.position = 'static';
-          this.tab.style.left = '0';
-          this.tab.style.transform = 'translateX(0)';
-        }
-      })
-    }
-  }
-  new tabTools({
-    el: '#header'
-  });
+    //AJAX拿搜索数据,返回给前端,展示搜索栏
+    class searchRet {
+      constructor(settings = {}) {
+        //拿到大盒子
+        this.el = document.querySelector(settings.el);
+        //拿到输入框 实时监听里面的输入内容
+        this.ipt = this.el.children[0].children[0];
+        //拿到的数据
+        this.data = [];
 
-  //滚动轮播
-  class swiperBanner {
-    constructor(settings = {}) {
-      this.el = document.querySelector(settings.el);
-      //ul list
-      this.oList = this.el.children[0];
-      //prev next
-      this.prev = this.el.nextElementSibling;
-      this.next = this.prev.nextElementSibling;
-      //当前是第几张图
-      this.indexTemp = 0;
-      //位置,宽度为364(包含了padding)
-      this.pos = 0;
-      //节流阀
-      this.flag = true;
-      this.clickHandler(() => { this.flag = true });
-    }
-    //大家都在说 轮播图
-    clickHandler(fn) {
-      this.prev.addEventListener('click', () => {
-        //控制图片下标,防止超出
-        if (!(this.indexTemp <= 0)) {
-          //节流阀
-          if (this.flag) {
-            this.indexTemp--;
-            this.pos -= 364;
-            this.flag = false;
-            Utils.animate(this.oList, { left: -this.pos }, () => {
-              if (typeof fn === 'function') {
-                fn();
-              }
-            });
-          }
-        }
-      })
-      this.next.addEventListener('click', () => {
-        //控制图片下标,防止超出
-        if (!(this.indexTemp >= this.el.children[0].children.length - 3)) {
-          //节流阀
-          if (this.flag) {
-            this.indexTemp++;
-            this.pos += 364;
-            this.flag = false;
-            Utils.animate(this.oList, { left: -this.pos }, () => {
-              if (typeof fn === 'function') {
-                fn();
-              }
-            });
-          }
-        }
-      })
-    }
-  }
-  //大家都在说轮播图
-  new swiperBanner({
-    el: '.carouselImgCon'
-  })
+        //正在输入
+        this.inputChange();
 
-  //AJAX拿搜索数据,返回给前端,展示搜索栏
-  class searchRet {
-    constructor(settings = {}) {
-      //拿到大盒子
-      this.el = document.querySelector(settings.el);
-      //拿到输入框 实时监听里面的输入内容
-      this.ipt = this.el.children[0].children[0];
-      //拿到的数据
-      this.data = [];
+        //数据的渲染
+        this.render();
 
-      //正在输入
-      this.inputChange();
+        //触摸我,我变色,利用事件委托
+        this.overHanlder();
+
+        //点击选项,把数据放到输入框
+        this.clickHanlder();
+
+      }
 
       //数据的渲染
-      this.render();
+      render() {
+        let strHTML = ``;
+        this.data.forEach((item, index) => {
+          strHTML += `<li data-id="${index}">${item}</li>`;
+        })
+        this.el.children[2].innerHTML = strHTML;
+      }
 
-      //触摸我,我变色,利用事件委托
-      this.overHanlder();
+      //正在输入,加了防抖
+      inputChange() {
+        //网易严选搜索接口
+        //http://you.163.com/xhr/search/searchAutoComplete.json?
+        //参数
+        //__timestamp 毫秒级时间戳：13位数字
+        //keywordPrefix 关键字
+        let that = this;
+        this.ipt.addEventListener('input', debounce(search, 200))
+        function search() {
+          //拿到内容,发送给搜索接口
+          let keywordPrefix = that.ipt.value;
+          //获取当前13位时间戳
+          let __timestamp = Date.now();
+          $.ajax({
+            type: "get",
+            url: '/search',
+            data: {
+              __timestamp: __timestamp,
+              keywordPrefix: keywordPrefix
+            }
+          }).then(res => {
+            if (!res) { return false; }
+            //保存一份数据
+            that.data = res.data || [];
+            //渲染数据
+            that.render();
+          });
+        }
+      }
 
-      //点击选项,把数据放到输入框
-      this.clickHanlder();
+      //触摸我,我变色
+      overHanlder() {
+        this.el.children[2].addEventListener('mouseover', (event) => {
+          let e = event || window.event;
+          let target = e.target || e.srcElement
 
-    }
-
-    //数据的渲染
-    render() {
-      let strHTML = ``;
-      this.data.forEach((item, index) => {
-        strHTML += `<li data-id="${index}">${item}</li>`;
-      })
-      this.el.children[2].innerHTML = strHTML;
-    }
-
-    //正在输入,加了防抖
-    inputChange() {
-      //网易严选搜索接口
-      //http://you.163.com/xhr/search/searchAutoComplete.json?
-      //参数
-      //__timestamp 毫秒级时间戳：13位数字
-      //keywordPrefix 关键字
-      let that = this;
-      this.ipt.addEventListener('input', debounce(search, 200))
-      function search() {
-        //拿到内容,发送给搜索接口
-        let keywordPrefix = that.ipt.value;
-        //获取当前13位时间戳
-        let __timestamp = Date.now();
-        $.ajax({
-          type: "get",
-          url: '/search',
-          data: {
-            __timestamp: __timestamp,
-            keywordPrefix: keywordPrefix
+          if (target.nodeName !== 'LI') {
+            return false;
           }
-        }).then(res => {
-          if (!res) { return false; }
-          //保存一份数据
-          that.data = res.data || [];
-          //渲染数据
-          that.render();
+          //自己变色,其他的不变色
+          let id = target.getAttribute('data-id');
+          //转换数组,排他思想
+          Array.prototype.slice.call(this.el.children[2].children).forEach((item, index) => {
+            item.style.backgroundColor = index == id ? '#f40' : '#fff';
+          });
         });
+
+        //离开就清除
+        this.el.children[2].addEventListener('mouseleave', () => {
+          this.data = [];
+          this.render();
+        })
+      }
+
+      //点击,删除搜索数据,把输入放到输入框
+      clickHanlder() {
+        this.el.children[2].addEventListener('click', (event) => {
+          let e = event || window.event;
+          let target = e.target || e.srcElement
+          if (target.nodeName !== 'LI') {
+            return false;
+          }
+          //数据赋值给输入框
+          this.ipt.value = target.innerText;
+          //清空搜索框数据
+          this.el.children[2].innerHTML = '';
+        });
+
       }
     }
 
-    //触摸我,我变色
-    overHanlder() {
-      this.el.children[2].addEventListener('mouseover', (event) => {
-        let e = event || window.event;
-        let target = e.target || e.srcElement
+    //使用代理,解决了跨域问题
+    new searchRet({
+      el: '.search-btn'
+    })
 
-        if (target.nodeName !== 'LI') {
-          return false;
-        }
-        //自己变色,其他的不变色
-        let id = target.getAttribute('data-id');
-        //转换数组,排他思想
-        Array.prototype.slice.call(this.el.children[2].children).forEach((item, index) => {
-          item.style.backgroundColor = index == id ? '#f40' : '#fff';
-        });
-      });
-      
-      //离开就清除
-      this.el.children[2].addEventListener('mouseleave', () => {
-        this.data =[];
+    // 渲染标题
+    class titleList {
+      constructor(settings = {}) {
+        this.el = document.querySelector(settings.el);
+
         this.render();
-      })
+
+      }
+
+      render() {
+        $.ajax({
+          url: '/api/getTitle',
+          type: 'GET',
+        }).done(res => {
+
+          let strHTML = `<li><a href="#" class="current">首页</a></li>`;
+          //先解构出总体
+          let { data } = res;
+          //解构出二级菜单数据
+          let twoData = [];
+          //遍历拿到第一层数据,添加给标题
+          for (let key in data) {
+            //遍历拿到第二层数据
+            twoData.push(data[key]['list']);
+            strHTML += `
+              <li><a href="#">${data[key]['title']}</a></li>
+            `
+          }
+          this.el.innerHTML = strHTML;
+        });
+      }
+
     }
 
-    //点击,删除搜索数据,把输入放到输入框
-    clickHanlder() {
-      this.el.children[2].addEventListener('click', (event) => {
-        let e = event || window.event;
-        let target = e.target || e.srcElement
-        if (target.nodeName !== 'LI') {
-          return false;
-        }
-        //数据赋值给输入框
-        this.ipt.value = target.innerText;
-        //清空搜索框数据
-        this.el.children[2].innerHTML = '';
-      });
+    new titleList({
+      el: '.nav',
+    });
 
+
+    //渲染新品首发
+    class newList {
+      constructor(settings = {}) {
+        this.el = document.querySelector(settings.el);
+
+        this.render();
+      }
+      //数据渲染
+      render() {
+        $.ajax({
+          url: '/api/getNew',
+          type: 'GET'
+        }).then(res => {
+          let { data } = res;
+          let strHTML = ``;
+          data.forEach(item => {
+            strHTML += `
+                <li>
+                <div class="hd">
+                  <a href="javascript:">
+                    <img src="${item.imgs[0]}" alt="">
+                    <img src="${item.imgs[1]}" alt="" data-id=${item.id}>
+                  </a>
+                </div>
+                <div class="bd">
+                  <div class="prdtTags">
+                    <span>${item.tag}</span>
+                  </div>
+                  <h4 class="name"><a href="javascript:" class="fs-14">${item.name}</a></h4>
+                  <div class="price">
+                    <span class="price-new">${item.priceNew}</span>
+                    <span class="price-old">${item.priceOld}</span>
+                  </div>
+                </div>
+              </li>
+            `
+          });
+          this.el.innerHTML = strHTML;
+        })
+
+
+
+
+      }
     }
+    new newList({
+      el: "#new"
+    });
 
-  }
+    //新品首发,点击事件,因为我的布局问题,a标签无法包裹住li标签
+    class newClick{
+      constructor(settings = {}){
+        this.el = document.querySelector(settings.el);
+        
+        this.clickHanlder();
+      }
 
-  //使用代理,解决了跨域问题
-  new searchRet({
-    el: '.search-btn'
+      clickHanlder(){
+        this.el.addEventListener('click', (event)=>{
+          let e = event || window.event;
+          let target = e.target || e.srcElement;
+
+          
+          if(target.nodeName !== 'IMG' ){
+            return false;
+          }
+          //这里因为设计问题,a标签无法包住li,暂时先使用图片进行跳转
+          let id = target.getAttribute('data-id');
+          
+          location.href= `./detail.html?id=${id}`;
+
+        })
+      }
+    }
+    
+    new newClick({
+      el:'#new'
+    })
+
   })
-
 })();

@@ -8,6 +8,8 @@ const proxy = require('http-proxy-middleware');//服务器代理中间件 解决
 const dd = require('silly-datetime');
 //数据库工具
 const db = require('./libs/DBHelper');
+//文件读取工具
+const file = require('./libs/fileHelper');
 //cmd5加密
 const md5 = require('md5');
 
@@ -26,12 +28,12 @@ app.use(express.json());
 app.use(cors());
 //服务器代理
 app.use('/search', proxy.createProxyMiddleware({
-    // 服务器api地址目录 
-    target: 'https://you.163.com/xhr/search/searchAutoComplete.json',
-    changeOrigin: true,
-    pathRewrite: {
-        "^/search": ""
-    }
+  // 服务器api地址目录 
+  target: 'https://you.163.com/xhr/search/searchAutoComplete.json',
+  changeOrigin: true,
+  pathRewrite: {
+    "^/search": ""
+  }
 }));
 
 
@@ -100,7 +102,54 @@ app.post('/user/regedit', async function (request, response) {
   }
 });
 
+//获取首页的title
+app.get('/api/getTitle', async (reuqest, response) => {
+
+  let data = (await file.getData("./data/title.json") || '[]');
+
+  response.json({
+    msg: "查询成功",
+    data: JSON.parse(data),
+    code: 200
+  })
+
+});
+
+//获取首页的新品
+app.get('/api/getNew', async (reuqest, response) => {
+  let data = (await file.getData("./data/new.json") || '[]');
+  response.json({
+    msg: "查询成功",
+    data: JSON.parse(data),
+    code: 200
+  })
+});
 //商品查询接口
+app.get('/api/prodList/:id', async (reuqest, response) => {
+  //拿到所有数据
+  var dataList = JSON.parse((await file.getData("./data/new.json")) || '[]');
+  //拿到商品的id去查询
+  let id = reuqest.params.id;
+  //找到数据
+  let data = dataList.find(item => item.id === id)
+
+  if (data != null) {
+    response.json({
+      msg: "查询成功",
+      data: data,
+      code: 200
+    });
+  } else {
+    response.json({
+      msg: "查询失败,没有这个产品",
+      data:[],
+      code: -200
+    });
+  }
+});
+
+
+
 //商品搜索接口
 
 app.listen(8080, () => {

@@ -1,0 +1,95 @@
+[
+  {
+    "id": "1",
+    "name": "日本制造 隅田川意式手冲特浓挂耳咖啡",
+    "text_l": "匠心之作 微苦醇香",
+    "text_f": "查看评价",
+    "tag": "特价",
+    "tag_time": "距优惠结束3天09时09分",
+    "priceNew": "¥29.9",
+    "priceOld": "¥39.9",
+    "fz": "天天免邮Pro会员立享免邮，到手价28.41",
+    "cx": "打骨折",
+    "gwf": "最高返2积分",
+    "xz": "特价商品不可与优惠券叠加使用",
+    "yf": "满99元免邮",
+    "ps": "湖南长沙",
+    "fw": [
+      "网易严选自营 >",
+      "不支持无忧退换",
+      "不可用卷",
+      "部分地区不可配送"
+    ],
+    "gg": [
+      {
+        "title": "升级版象牙白机身+一个刷头",
+        "url": "./images/gg1.png"
+      },
+      {
+        "title": "升级版象牙白机身+一个刷头",
+        "url": "./images/gg2.png"
+      }
+    ],
+    "count": "1",
+    "imgs": [
+      "/images/1.png",
+      "/images/2.png"
+    ],
+    "zoomImgs": {
+      "bigImgs": [
+        "./images/b1.png",
+        "./images/b2.png",
+        "./images/b3.png",
+        "./images/b4.png",
+        "./images/b5.png"
+      ],
+      "middleImgs": [
+        "./images/m1.png",
+        "./images/m2.png",
+        "./images/m3.png",
+        "./images/m4.png",
+        "./images/m5.png"
+      ],
+      "smallImgs": [
+        "./images/s1.png",
+        "./images/s2.png",
+        "./images/s3.png",
+        "./images/s4.png",
+        "./images/s5.png"
+      ]
+    }
+  },
+  {
+    "id": "2",
+    "imgs": [
+      "/images/1.png",
+      "/images/2.png"
+    ],
+    "tag": "特价",
+    "name": "蜂蜜般流心，大颗土耳其杏肉",
+    "priceNew": "¥26.9",
+    "priceOld": "¥39.9"
+  },
+  {
+    "id": "3",
+    "imgs": [
+      "/images/1.png",
+      "/images/2.png"
+    ],
+    "tag": "特价",
+    "name": "蜂蜜般流心，大颗土耳其杏肉",
+    "priceNew": "¥46.9",
+    "priceOld": "¥59.9"
+  },
+  {
+    "id": "4",
+    "imgs": [
+      "/images/1.png",
+      "/images/2.png"
+    ],
+    "tag": "特价",
+    "name": "蜂蜜般流心，大颗土耳其杏肉",
+    "priceNew": "¥56.9",
+    "priceOld": "¥69.9"
+  }
+]

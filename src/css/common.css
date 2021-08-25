@@ -342,6 +342,43 @@ button {
   z-index: 9;
 }
 
+#header .nav li ul {
+  display: flex;
+  position: absolute;
+  width: 1202px;
+  z-index: 99;
+  top: 30px;
+  left: -70px;
+  padding: 14px 20px 20px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#header .nav li ul li {
+  margin-right: 20px;
+  width: 124px;
+}
+
+#header .nav li ul li h3 {
+  margin-left: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#header .nav li ul li .list {
+  margin: 10px 0;
+}
+
+#header .nav li ul li p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header .nav li ul li .icon {
+  width: 50px;
+  height: 50px;
+}
+
 #header .nav li a {
   font-weight: bold;
   color: #000;
