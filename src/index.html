@@ -28,7 +28,7 @@
         </div>
         <div class="right">
           <ul>
-            <li> <a href="./login.html">登录/注册</a></li>
+            <li id="isLogin"> </li>
             <li> <a href="javascript:void(0)">我的订单</a></li>
             <li> <a href="javascript:void(0)">会员</a></li>
             <li> <a href="javascript:void(0)">甄选家</a></li>
@@ -80,16 +80,16 @@
         <div class="cart">
           <i class="gwc"></i>
           <span class="text">购物车</span>
-          <i class="circle">0</i>
+          <!-- <i class="circle">0</i> -->
         </div>
       </div>
     </div>
     <!-- 头, 搜索区域 end -->
 
     <!-- 头, nav区域 start-->
-   
-      <ul class="nav center">
-        <!-- 
+
+    <ul class="nav center">
+      <!-- 
           这里暂时不删除,二级菜单不会渲染  
         <li><a href="#" class="current">首页</a></li>
         <li>
@@ -189,8 +189,8 @@
         <li><a href="#">严选全球</a></li>
         <li><a href="#">为你推荐</a></li>
         <li><a href="#">众筹</a></li> -->
-      </ul>
-   
+    </ul>
+
     <!-- 头, nav区域 end-->
   </header>
 
@@ -200,16 +200,16 @@
 
     <div class="swiper-wrapper">
       <a href="#">
-        <img src="./images/swiper1.jpg" alt="">
+        <img data-img="./images/swiper1.jpg" src="" alt="">
       </a>
       <a href="#">
-        <img src="./images/swiper2.jpg" alt="">
+        <img data-img="./images/swiper2.jpg" src="" alt="">
       </a>
       <a href="#">
-        <img src="./images/swiper3.jpg" alt="">
+        <img data-img="./images/swiper3.jpg" src="" alt="">
       </a>
       <a href="#">
-        <img src="./images/swiper4.jpg" alt="">
+        <img data-img="./images/swiper4.jpg" src="" alt="">
       </a>
     </div>
 
@@ -245,7 +245,7 @@
       </div>
       <div class="slickWidth">
         <div class="box">
-          <ul id="new"> 
+          <ul id="new">
             <!-- <li>
               <div class="hd">
                 <a href="#">
@@ -343,7 +343,7 @@
         <div class="box1">
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/kafei.png" alt="" class="img_scale">
+              <img data-img="./images/kafei.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -355,7 +355,7 @@
         <div class="box2">
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/maoliang.png" alt="" class="img_scale">
+              <img data-img="./images/maoliang.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -365,7 +365,7 @@
           </div>
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/maoliang.png" alt="" class="img_scale">
+              <img data-img="./images/maoliang.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -375,7 +375,7 @@
           </div>
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/maoliang.png" alt="" class="img_scale">
+              <img data-img="./images/maoliang.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -385,7 +385,7 @@
           </div>
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/maoliang.png" alt="" class="img_scale">
+              <img data-img="./images/maoliang.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -395,7 +395,7 @@
           </div>
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/maoliang.png" alt="" class="img_scale">
+              <img data-img="./images/maoliang.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -405,7 +405,7 @@
           </div>
           <div class="popularItem">
             <div class="hd">
-              <img src="./images/maoliang.png" alt="" class="img_scale">
+              <img data-img="./images/maoliang.png" src="" alt="" class="img_scale">
               <span class="logo_title">日本制造</span>
             </div>
             <div class="bd">
@@ -439,7 +439,7 @@
         </div>
       </div>
       <div class="banner">
-        <img src="./images/jjsh.png" alt="">
+        <img data-img="./images/jjsh.png" src="" alt="">
       </div>
       <div class="slickWidth">
         <div class="box">
@@ -447,8 +447,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/jjsh_list2.jpg" alt="">
-                  <img src="./images/jjsh_list1.jpg" alt="">
+                  <img data-img="./images/jjsh_list2.jpg" src="" alt="">
+                  <img data-img="./images/jjsh_list1.jpg" src="" alt="">
                   <span class="logo_title">日本制造</span>
                 </a>
               </div>
@@ -466,8 +466,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/jjsh_list2.jpg" alt="">
-                  <img src="./images/jjsh_list1.jpg" alt="">
+                  <img data-img="./images/jjsh_list2.jpg" src="" alt="">
+                  <img data-img="./images/jjsh_list1.jpg" src="" alt="">
                 </a>
               </div>
               <div class="bd">
@@ -484,8 +484,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/jjsh_list2.jpg" alt="">
-                  <img src="./images/jjsh_list1.jpg" alt="">
+                  <img data-img="./images/jjsh_list2.jpg" src="" alt="">
+                  <img data-img="./images/jjsh_list1.jpg" src="" alt="">
                 </a>
               </div>
               <div class="bd">
@@ -502,8 +502,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/jjsh_list2.jpg" alt="">
-                  <img src="./images/jjsh_list1.jpg" alt="">
+                  <img data-img="./images/jjsh_list2.jpg" src="" alt="">
+                  <img data-img="./images/jjsh_list1.jpg" src="" alt="">
 
                 </a>
               </div>
@@ -546,7 +546,7 @@
         </div>
       </div>
       <div class="banner">
-        <img src="./images/fsxb.jpg" alt="">
+        <img data-img="./images/fsxb.jpg" src="" alt="">
       </div>
       <div class="slickWidth">
         <div class="box">
@@ -554,8 +554,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/fsxb_list1.jpg" alt="">
-                  <img src="./images/fsxb_list2.jpg" alt="">
+                  <img data-img="./images/fsxb_list1.jpg" src="" alt="">
+                  <img data-img="./images/fsxb_list2.jpg" src="" alt="">
                   <span class="logo_title">日本制造</span>
                 </a>
               </div>
@@ -573,8 +573,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/fsxb_list1.jpg" alt="">
-                  <img src="./images/fsxb_list2.jpg" alt="">
+                  <img data-img="./images/fsxb_list1.jpg" src="" alt="">
+                  <img data-img="./images/fsxb_list2.jpg" src="" alt="">
                 </a>
               </div>
               <div class="bd">
@@ -591,8 +591,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/fsxb_list1.jpg" alt="">
-                  <img src="./images/fsxb_list2.jpg" alt="">
+                  <img data-img="./images/fsxb_list1.jpg" src="" alt="">
+                  <img data-img="./images/fsxb_list2.jpg" src="" alt="">
                 </a>
               </div>
               <div class="bd">
@@ -609,8 +609,8 @@
             <li>
               <div class="hd">
                 <a href="#">
-                  <img src="./images/fsxb_list1.jpg" alt="">
-                  <img src="./images/fsxb_list2.jpg" alt="">
+                  <img data-img="./images/fsxb_list1.jpg" src="" alt="">
+                  <img data-img="./images/fsxb_list2.jpg" src="" alt="">
 
                 </a>
               </div>
@@ -648,7 +648,7 @@
           <ul>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg" src="" class="img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -664,7 +664,7 @@
             </li>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg" src="" class="img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -680,7 +680,7 @@
             </li>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg" src="" class="img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -696,7 +696,7 @@
             </li>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg" src="" class="img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -712,7 +712,7 @@
             </li>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg" src="" class="img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -728,7 +728,7 @@
             </li>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg"" src="" class=" img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -744,7 +744,7 @@
             </li>
             <li>
               <a href="#">
-                <img src="./images/say.jpg" class="img_scale" alt="">
+                <img data-img="./images/say.jpg" src="" class="img_scale" alt="">
               </a>
               <div>
                 <p>
@@ -759,9 +759,9 @@
               </div>
             </li>
           </ul>
-         
+
         </div>
-        
+
         <div class="prev"></div>
         <div class="next"></div>
       </div>
@@ -800,7 +800,7 @@
         </div>
         <div class="yx-cp-item">
           <h4>扫码下载严选App</h4>
-          <div><a href="#"><img src="./images/app.png" alt=""></a></div>
+          <div><a href="#"><img data-img="./images/app.png" src="" alt=""></a></div>
           <p>下载领大额新人红包</p>
         </div>
       </div>
@@ -825,9 +825,11 @@
   <script src="./js/libs/jquery.js"></script>
   <script src="./js/libs/animate_tools.js"></script>
   <script src="./js/index.js"></script>
+  <script src="./js/common.js"></script>
 
- 
-  
+
+
+
 </body>
 
 </html>

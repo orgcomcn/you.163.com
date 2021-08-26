@@ -142,15 +142,104 @@ app.get('/api/prodList/:id', async (reuqest, response) => {
   } else {
     response.json({
       msg: "查询失败,没有这个产品",
-      data:[],
+      data: [],
       code: -200
     });
   }
 });
 
 
+//get --> query
+//post --> body
+// /:id --> params.id
 
-//商品搜索接口
+//加入购物车
+app.post("/api/addCart", async (request, response) => {
+  let { pId, uId, img, pName, pYh, pGg, pPrice, pCount } = request.body;
+
+  // console.log(pId, uId, img, pName, pYh, pGg, pPrice, pCount);
+
+  let sql = "SELECT * FROM `carts` WHERE `uId` = ? AND `pId` = ? AND `cStatus` = 1";
+  let params = [uId, pId];
+  //如果查询到数据,就是已经购买
+  let isAddCart = (await db.exec(sql, params)).length >= 1;
+
+
+  if (isAddCart) {
+    //如果数据库中有数据,那么改变数量和价格.
+    let sqlUpdate = " UPDATE `carts` SET `pCount` = ?+`pCount` , `pPriceCount` = `pCount`* `pPrice` WHERE `uId` = ? AND `pId` = ? AND `cStatus` = 1";
+    let params = [pCount, uId, pId];
+    let isUpdate = (await db.exec(sqlUpdate, params)).affectedRows >= 1;
+
+    response.json({
+      msg: isUpdate ? '加入购物车成功u' : '加入购物车失败u',
+    })
+
+
+
+  } else {
+    //判断如果数据库中没有数据,那么就是新增.
+    let sqlInsert = "INSERT INTO `carts` (`pId`,`uId`,`pImg`,`pName`,`pYh`,`pGg`,`pPrice`,`pPriceCount`,`pCount`)  VALUES (?,?,?,?,?,?,?,?,?)";
+    let params = [pId, uId, img, pName, pYh, pGg, pPrice, pCount * pPrice, pCount];
+
+    let isInsert = (await db.exec(sqlInsert, params)).affectedRows >= 1;
+    response.json({
+      msg: isInsert ? '加入购物车成功i' : '加入购物车失败i',
+    })
+  }
+
+
+
+
+
+
+});
+
+
+//查询接口
+app.get("/api/getCart/:id", async (request, response) => {
+  let sql = "SELECT * FROM  `carts` WHERE `cStatus` = 1 AND `uId` = ?"
+  let id = request.params.id;
+
+  //查询返回的是一个数组
+  //更新,删除,修改返回的是受影响的行数
+  let data = (await db.exec(sql, id)) || '[]';
+
+  response.json({
+    msg: data.length >= 1 ? '查询成功' : '空数据',
+    data: data,
+    code: 200
+  });
+
+});
+
+//修改接口
+app.post("/api/modify", async (request, response) => {
+  let sql = "UPDATE `carts` SET `pCount`=?, `pPriceCount` = `pCount`* `pPrice` WHERE `cId` = ?"
+  let params = [
+    request.body.pCount,
+    request.body.cId
+  ]
+
+  let isModify = (await db.exec(sql, params)).affectedRows >= 1;
+  response.json({
+    msg: isModify ? '修改成功' : '修改失败'
+  });
+
+})
+
+//删除接口
+app.post("/api/delCart", async (request, response) => {
+  let sql = "UPDATE `carts` SET `cStatus` = 0  WHERE `cId` = ?";
+  let cId = request.body.cId;
+
+  let isUpdate = (await db.exec(sql, cId)).affectedRows >= 1;
+
+  response.json({
+    msg: isUpdate ? '删除成功' : '删除失败'
+  });
+
+})
 
 app.listen(8080, () => {
   console.log('8080服务器启动成功');

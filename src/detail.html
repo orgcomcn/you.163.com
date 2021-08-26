@@ -27,7 +27,7 @@
         </div>
         <div class="right">
           <ul>
-            <li> <a href="./login.html">登录/注册</a></li>
+            <li id="isLogin"> </li>
             <li> <a href="#">我的订单</a></li>
             <li> <a href="#">会员</a></li>
             <li> <a href="#">甄选家</a></li>
@@ -77,7 +77,7 @@
         <div class="cart">
           <i class="gwc"></i>
           <span class="text">购物车</span>
-          <i class="circle">0</i>
+          <!-- <i class="circle">0</i> -->
         </div>
       </div>
     </div>
@@ -216,10 +216,10 @@
             </div>
           </div>
           <div class="btn">
-            <a href="#">立即购买</a>
-            <a href="#">加入购物车</a>
-            <a href="#">收藏</a>
-            <a href="#">下载严选APP</a>
+            <a href="javascript:" class="submit">立即购买</a>
+            <a href="javascript:" class="addCart">加入购物车</a>
+            <a href="javascript:">收藏</a>
+            <a href="javascript:">下载严选APP</a>
           </div>
         </div>
       </div>
@@ -454,7 +454,7 @@
   <script src="./js/libs/jquery.js"></script>
   <script src="./layui/layui.js"></script>
   <script src="./js/detail.js"></script>
-
+<script src="./js/common.js"></script>
 </body>
 
 </html>

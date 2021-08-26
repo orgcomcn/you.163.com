@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,6 +14,7 @@
   <!-- 首页样式 -->
   <link rel="stylesheet" href="./css/cart.css">
 </head>
+
 <body>
   <!-- 头部 -->
   <header id="header">
@@ -26,11 +28,11 @@
         </div>
         <div class="right">
           <ul>
-            <li> <a href="./login.html">登录/注册</a></li>
+            <li id="isLogin"> </li>
             <li> <a href="#">我的订单</a></li>
             <li> <a href="#">会员</a></li>
             <li> <a href="#">甄选家</a></li>
-            <li class="dropMeun"> 
+            <li class="dropMeun">
               <a href="#" class="iconfont">企业采购 &#xe61b</a>
               <ul>
                 <li><a href="#">企业购</a></li>
@@ -39,15 +41,15 @@
               </ul>
             </li>
             <li class="dropMeun">
-               <a href="#" class="iconfont">客户服务 &#xe61b</a>
-               <ul>
+              <a href="#" class="iconfont">客户服务 &#xe61b</a>
+              <ul>
                 <li><a href="#">在线客服</a></li>
                 <li><a href="#">帮助中心</a></a></li>
                 <li><a href="#">商务合作</a></li>
                 <li><a href="#">开放平台</a></li>
               </ul>
             </li>
-            <li> 
+            <li>
               <a href="#" class="iconfont">&#xe612 APP</a>
             </li>
           </ul>
@@ -76,7 +78,7 @@
         <div class="cart">
           <i class="gwc"></i>
           <span class="text">购物车</span>
-          <i class="circle">0</i>
+          <!-- <i class="circle">0</i> -->
         </div>
       </div>
     </div>
@@ -103,7 +105,7 @@
   <!-- 购物车结算 -->
   <div class="m-cart">
     <div class="center">
-     <div class="c-detail">
+      <div class="c-detail">
         <ul>
           <li>
             <div class="w1">
@@ -126,42 +128,7 @@
               操作
             </div>
           </li>
-          <li>
-              <div class="w1">
-                <input type="checkbox">
-              </div>
-              <div class="w2">
-                <div class="pic">
-                  <a href="#">
-                    <img src="./images/cart_item.png" alt="">
-                  </a>
-                </div>
-                <div class="nameCon">
-                 <div class="promotionBar">
-                   <span>特价抢购中</span>
-                   <span>距优惠结束</span>
-                   <span>2天12小时</span>
-                 </div>
-                 <a href="#">软萌柔弹，日式蓬软太鼓抱枕</a>
-                 <span>直径40CM 海军蓝</span>
-                </div>
-              </div>
-              <div class="w3">
-                <span>¥25.00</span>
-              </div>
-              <div class="w4">
-                  <span>-</span>
-                  <input type="text" value="1">
-                  <span>+</span>
-              </div>
-              <div class="w5">
-                <span class="price">¥25.00</span>
-              </div>
-              <div class="w6">
-                <a href="#">删除</a>
-              </div>
-          </li>
-          <li>
+          <!-- <li>
             <div class="w1">
               <input type="checkbox">
             </div>
@@ -172,22 +139,22 @@
                 </a>
               </div>
               <div class="nameCon">
-               <div class="promotionBar">
-                 <span>特价抢购中</span>
-                 <span>距优惠结束</span>
-                 <span>2天12小时</span>
-               </div>
-               <a href="#">软萌柔弹，日式蓬软太鼓抱枕</a>
-               <span>直径40CM 海军蓝</span>
+                <div class="promotionBar">
+                  <span>特价抢购中</span>
+                  <span>距优惠结束</span>
+                  <span>2天12小时</span>
+                </div>
+                <a href="#">软萌柔弹，日式蓬软太鼓抱枕</a>
+                <span>直径40CM 海军蓝</span>
               </div>
             </div>
             <div class="w3">
               <span>¥25.00</span>
             </div>
             <div class="w4">
-                <span>-</span>
-                <input type="text" value="1">
-                <span>+</span>
+              <span>-</span>
+              <input type="text" value="1">
+              <span>+</span>
             </div>
             <div class="w5">
               <span class="price">¥25.00</span>
@@ -195,90 +162,55 @@
             <div class="w6">
               <a href="#">删除</a>
             </div>
-        </li>
-        <li>
-          <div class="w1">
-            <input type="checkbox">
-          </div>
-          <div class="w2">
-            <div class="pic">
-              <a href="#">
-                <img src="./images/cart_item.png" alt="">
-              </a>
-            </div>
-            <div class="nameCon">
-             <div class="promotionBar">
-               <span>特价抢购中</span>
-               <span>距优惠结束</span>
-               <span>2天12小时</span>
-             </div>
-             <a href="#">软萌柔弹，日式蓬软太鼓抱枕</a>
-             <span>直径40CM 海军蓝</span>
-            </div>
-          </div>
-          <div class="w3">
-            <span>¥25.00</span>
-          </div>
-          <div class="w4">
-              <span>-</span>
-              <input type="text" value="1">
-              <span>+</span>
-          </div>
-          <div class="w5">
-            <span class="price">¥25.00</span>
-          </div>
-          <div class="w6">
-            <a href="#">删除</a>
-          </div>
-      </li>
+          </li> -->
         </ul>
-     </div>
-     <div class="cart-total"> 
-      <ul>
-        <li>
-          <div class="w1">
-            <div class="box1">
-              <input type="checkbox">
-              <span>已选</span>
-              <span>(4)</span>
+      </div>
+      <div class="cart-total">
+        <ul>
+          <li>
+            <div class="w1">
+              <div class="box1">
+                <!-- <input type="checkbox"> -->
+                <span></span>
+                <span></span>
+              </div>
+              <div class="box2">
+                <a href="#"></a>
+                <!-- <a href="#">清空失效商品</a> -->
+              </div>
             </div>
-            <div class="box2">
-              <a href="#">批量删除</a>
-              <a href="#">清空失效商品</a>
+            <div class="w2">
+              <div class="info">
+                <p>
+                  <span>商品合计:</span>
+                  <span clas="zje" id="zje">¥0.00</span>
+                </p>
+                <p>
+                  <span>已优惠(95折):</span>
+                  <span class="dz">-¥0.00</span>
+                </p>
+              </div>
+              <div class="total">
+                <p>
+                  <span>应付总额：</span>
+                  <span class="yfje">¥ 0.00</span>
+                </p>
+                <a href="#">抓紧下单,别磨蹭了.</a>
+              </div>
+              <a href="javascript:" class="submit">下单</a>
             </div>
-          </div>
-          <div class="w2">
-            <div class="info">
-              <p>
-                <span>商品合计:</span>
-                <span>¥99.80</span>
-              </p>
-              <p>
-                <span>已优惠:</span>
-                 <span>-¥12.00</span>
-              </p>
-            </div>
-            <div class="total">
-              <p>
-                <span>应付总额：</span>
-                <span class="price">¥ 87.80</span>
-              </p>
-              <a href="#">再购¥11.2免邮 , 去凑单></a>
-            </div>
-            <a href="#" class="submit">下单</a>
-          </div>
-         
-        </li>
+
+          </li>
         </ul>
-     </div>
+      </div>
     </div>
   </div>
 
 
 
 
-   <!-- 底部 -->
-   <footer>
+  <!-- 底部 -->
+  <footer>
     <div class="center">
       <div class="yx-cp-m-ft1">
         <div class="yx-cp-item">
@@ -317,5 +249,13 @@
       <div class="yx-cp-m-ft2"></div>
     </div>
   </footer>
+
+  <script src="./js/libs/jquery.js"></script>
+  <script src="./layui/layui.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/common.js"></script>
+
+
 </body>
+
 </html>

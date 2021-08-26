@@ -14,11 +14,14 @@
       }
       return { left, top };
     }
+    
+    //用来装图片数据....
     let dataImgs = {};
 
     class renderData {
       constructor(settings = {}) {
-        //这个是内容区域
+        //这个是内容区域,不要问我数据是什么,词汇量不够,用拼音命名的,过久了我自己也不知道是什么.
+        //对应要渲染的数据,以及数据库中的字段
         this.el = document.querySelector(settings.el);
         //分别拿到数据存放的标签 name, text_l, text_f, tag, tag_time, priceNew, priceOld, fz, cx, gwf, xz, yf, ps, fw, gg, count, zoomImgs 
         this.name = this.el.querySelector('.intro h2');
@@ -36,7 +39,7 @@
         this.ps = this.el.querySelector('.price .delivery span:nth-of-type(2)');
         this.fw = this.el.querySelector('.price .policyBox a');
         this.gg = this.el.querySelector('.specProp ul');
-
+        this.count = this.el.querySelector('.u-selnum input');
 
 
         //渲染数据上去
@@ -47,11 +50,13 @@
         this.click = this.el.querySelector('.u-selnum');
         this.addClick();
         //数据提交
+        this.submit = this.el.querySelector('.btn');
+        this.submitClick();
       }
       //数据的渲染
       render() {
 
-        //没有传id,不让查看这个页面
+        //没有传id,不让查看这个页面,如果直接访问订单页面,不让访问
         if (!(location.search)) {
           this.el.innerHTML = "";
           layer.msg('你在瞎搞,我找不到这个商品的信息', { icon: 2, time: 2000, shade: 0.4 }, function () {
@@ -112,30 +117,81 @@
           });
         })
       }
-
-      addClick(){
+      //增加减少
+      addClick() {
         this.click.addEventListener('click', (event) => {
           let e = event || window.event;
           let target = e.target || e.srcElement;
 
-          if( target.nodeName !=='SPAN'){
+          if (target.nodeName !== 'SPAN') {
             return false;
           }
-
           // sub是-  sup 是+
-          if(target.className === 'sub'){
-            if(this.click.children[1].value <= 1){
+          if (target.className === 'sub') {
+            if (this.click.children[1].value <= 1) {
               layer.msg('最少购买一件,大哥,请别乱搞');
               return false;
             }
             this.click.children[1].value--;
           }
 
-          if(target.className === 'sup'){
+          if (target.className === 'sup') {
             this.click.children[1].value++;
           }
 
         })
+      }
+
+      //购买,加入购物车
+      submitClick() {
+        this.submit.addEventListener('click', (event) => {
+          let e = event || window.event;
+          let target = e.target || e.srcElement
+
+          //如果不是点击的加入购物车,或者立即购买按钮
+          if (target.className !== 'submit' && target.className !== 'addCart') {
+            return false;
+          }
+
+          //拿到sessionStorage里面的当前登录用户
+          let userInfo = JSON.parse(sessionStorage.getItem('User'));
+          if (!userInfo) {
+            layer.msg('小子,能不能先登录?');
+            return false;
+          }
+
+          //拿到用户id
+          let userId = userInfo.id;
+          //封装成一个对象,发送给接口
+          let obj = {
+            //产品id,用户id,随机小图中的一张图片,商品名称,商品优惠,优惠结束时间,产品规格,价格,数量
+            pId: parseInt(location.search.split("=")[1]),
+            uId: parseInt(userId),
+            img: dataImgs.smallImgs[0],
+            pName: this.name.innerText,
+            pYh: this.tag_time.innerText.slice(5, this.tag_time.innerText.length),
+            pGg: '规格暂时固定死,无法选择',
+            pPrice: parseFloat(this.priceNew.innerText.slice(1, this.priceNew.innerText.length)),
+            pCount: parseInt(this.count.value)
+          }
+          // 这里是随机一张图片
+          // img:  dataImgs.smallImgs[parseInt(Math.random() * 10) % dataImgs.smallImgs.length],
+          //发送给后端
+
+          $.ajax({
+            url: '/api/addCart',
+            data: obj,
+            type: "post",
+          }).done(function (res) {
+            layer.msg(res.msg);
+          });
+
+          //如果点击的是立即购买直接跳转到购买页面
+          if (target.className == 'submit') {
+            location.href = './cart.html'
+          }
+
+        });
       }
     }
 
@@ -262,11 +318,6 @@
         });
       }
     }
-
-
-
-
-
 
   })
 })();

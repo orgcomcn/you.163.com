@@ -1,5 +1,7 @@
 (function () {
 
+  //  获取所有图片
+  let imgs = document.querySelectorAll('img');
 
 
   window.addEventListener('load', () => {
@@ -16,6 +18,38 @@
         }, delay);
       }
     }
+
+    //获取自身到body的距离函数
+    function offsetDis(obj) {
+      let left = 0;
+      let top = 0;
+
+      while (obj) {
+        left += obj.offsetLeft;
+        top += obj.offsetTop;
+        obj = obj.offsetParent;
+      }
+      return { left, top };
+    }
+
+    //图片的懒加载
+    function loadImg() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      imgs.forEach(item => {
+        if (offsetDis(item).top - 1000 < scrollTop) {
+          const data_src = item.getAttribute('data-img');
+          item.setAttribute('src', data_src);
+        }
+      })
+    }
+    
+    //先执行一次
+    loadImg();
+    window.addEventListener('scroll', debounce(loadImg, 100));
+    
+
+
+
 
     // 透明轮播图
     class swiperBaner {
@@ -171,11 +205,15 @@
 
       //2. 监听滚动条滚过的距离，根据距离去判断滚到了那一层楼。
       scrollBody() {
-        window.addEventListener('scroll', debounce(scrollBody, 200));
+        window.addEventListener('scroll', debounce(scrollBody, 150));
+
+
+
         let that = this;
         function scrollBody() {
           //滚动条滚动的距离 不可视区域高度
           let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
           //获取当前楼层
           for (let i = 0; i < that.arr.length; i++) {
             //获取当前楼层和下一楼层的offsetTop
@@ -525,34 +563,35 @@
     });
 
     //新品首发,点击事件,因为我的布局问题,a标签无法包裹住li标签
-    class newClick{
-      constructor(settings = {}){
+    class newClick {
+      constructor(settings = {}) {
         this.el = document.querySelector(settings.el);
-        
+
         this.clickHanlder();
       }
 
-      clickHanlder(){
-        this.el.addEventListener('click', (event)=>{
+      clickHanlder() {
+        this.el.addEventListener('click', (event) => {
           let e = event || window.event;
           let target = e.target || e.srcElement;
 
-          
-          if(target.nodeName !== 'IMG' ){
+
+          if (target.nodeName !== 'IMG') {
             return false;
           }
           //这里因为设计问题,a标签无法包住li,暂时先使用图片进行跳转
           let id = target.getAttribute('data-id');
-          
-          location.href= `./detail.html?id=${id}`;
+
+          location.href = `./detail.html?id=${id}`;
 
         })
       }
     }
-    
+
     new newClick({
-      el:'#new'
+      el: '#new'
     })
+
 
   })
 })();

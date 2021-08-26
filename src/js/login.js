@@ -1,8 +1,6 @@
 (function () {
   window.addEventListener('load', () => {
 
-
-
     init();
     /**
      * 这是一个发送ajax的函数
