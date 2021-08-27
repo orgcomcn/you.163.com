@@ -35,8 +35,9 @@
     //图片的懒加载
     function loadImg() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      let h = document.documentElement.clientHeight||document.body.clientHeight;
       imgs.forEach(item => {
-        if (offsetDis(item).top - 1000 < scrollTop) {
+        if (offsetDis(item).top  < scrollTop + h + 300) {
           const data_src = item.getAttribute('data-img');
           item.setAttribute('src', data_src);
         }
