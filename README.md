@@ -1,15 +1,13 @@
 # 项目名称
   HTML+CSS+JavaScript+Layui+Jquery+MySQL+Node.js仿网易严选
-
-# 安装步骤
 ## 必备环境
-  * MySQL(导入数据库)
+  * MySQL(导入数据库  ./src/sql/sql.sql)
   * NODE
-1.git clone https://github.com/YangJiang1/you.163.com.git
-2.在server目录下 npm install
-3.修改 ./server/libs/DBHelper/index.js 中数据库密码
-4.node app.js
-
+## 安装步骤
+  * git clone https://github.com/YangJiang1/you.163.com.git
+  * 在server目录下 npm install
+  * 修改 ./server/libs/DBHelper/index.js 中数据库密码
+  * node app.js
 ## 遇到的一些问题
 
 ```html
